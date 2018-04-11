@@ -1238,7 +1238,7 @@
     "$page->hasCode()": {
         "prefix": "hasCode()",
         "body": "hasCode()",
-        "description": "Checks if there are any audio files in the page's directory",
+        "description": "Checks if there are any code files in the page's directory",
         "scope": "php"
     },
     "$page->hasDocuments()": {
@@ -2787,6 +2787,12 @@
         "prefix": "login($password)",
         "body": "login(${1:\\$password})",
         "description": "Login the user with the given password if the password matches the user's password.",
+        "scope": "php"
+    },
+    "$user->loginPasswordless()": {
+        "prefix": "loginPasswordless()",
+        "body": "loginPasswordless()",
+        "description": "Login the user without a password.",
         "scope": "php"
     },
     "$user->logout()": {
