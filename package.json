@@ -2,7 +2,7 @@
     "name": "kirby-snippets",
     "displayName": "Kirby Cheatsheet Snippets",
     "description": "https://getkirby.com/docs/cheatsheet",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "publisher": "medienbaecker",
     "author": {
         "name": "Thomas Günther",
