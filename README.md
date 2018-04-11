@@ -4,4 +4,4 @@
 
 I've added tabs stops for every parameter and included the corresponding description for every snippet.
 
-![Kirby snippets](https://user-images.githubusercontent.com/7975568/38623203-50139c92-3da5-11e8-9b08-adbb26e72bc7.gif)
+![Kirby snippets](https://user-images.githubusercontent.com/7975568/38645681-3cd76434-3de5-11e8-966a-da66ae8c670a.gif)
