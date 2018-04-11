@@ -2,7 +2,7 @@
     "name": "kirby-snippets",
     "displayName": "Kirby Cheatsheet Snippets",
     "description": "https://getkirby.com/docs/cheatsheet",
-    "version": "0.1",
+    "version": "0.1.0",
     "publisher": "medienbaecker",
     "author": {
         "name": "Thomas Günther",
@@ -38,7 +38,7 @@
     "contributes": {
         "snippets": [
             {
-                "language": "twig",
+                "language": "php",
                 "path": "./snippets/snippets.json"
             }
         ]
