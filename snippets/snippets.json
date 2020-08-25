@@ -1,4 +1,10 @@
 {
+	"$field->callback()": {
+		"prefix": "->callback()",
+		"body": "->callback(${1:\\$callback})",
+		"description": "Applies the callback function to the field",
+		"scope": "php"
+	},
 	"$field->escape()": {
 		"prefix": "->escape()",
 		"body": "->escape(${1:\\$context = 'html'})",
@@ -7,7 +13,7 @@
 	},
 	"$field->excerpt()": {
 		"prefix": "->excerpt()",
-		"body": "->excerpt(${1:\\$chars = 0}, ${2:\\$strip = true}, ${3:\\$rep = '…'})",
+		"body": "->excerpt(${1:\\$chars = 0}, ${2:\\$strip = true}, ${3:\\$rep = ' \u2026'})",
 		"description": "Creates an excerpt of the field value without html or any other formatting.",
 		"scope": "php"
 	},
@@ -21,6 +27,12 @@
 		"prefix": "->html()",
 		"body": "->html()",
 		"description": "Converts the field content to valid HTML",
+		"scope": "php"
+	},
+	"$field->inline()": {
+		"prefix": "->inline()",
+		"body": "->inline()",
+		"description": "Strips all block-level HTML elements from the field value, it can be safely placed inside of other inline elements without the risk of breaking the HTML structure.",
 		"scope": "php"
 	},
 	"$field->isEmpty()": {
@@ -68,7 +80,13 @@
 	"$field->kirbytext()": {
 		"prefix": "->kirbytext()",
 		"body": "->kirbytext()",
-		"description": "Converts the field content from Markdown/Kirbytext to valid HTML",
+		"description": "Converts the field content from Markdown\/Kirbytext to valid HTML",
+		"scope": "php"
+	},
+	"$field->kirbytextinline()": {
+		"prefix": "->kirbytextinline()",
+		"body": "->kirbytextinline()",
+		"description": "Converts the field content from inline Markdown\/Kirbytext to valid HTML",
 		"scope": "php"
 	},
 	"$field->length()": {
@@ -89,6 +107,18 @@
 		"description": "Converts markdown to valid HTML",
 		"scope": "php"
 	},
+	"$field->model()": {
+		"prefix": "->model()",
+		"body": "->model()",
+		"description": "",
+		"scope": "php"
+	},
+	"$field->nl2br()": {
+		"prefix": "->nl2br()",
+		"body": "->nl2br()",
+		"description": "Converts all line breaks in the field content to `&lt;br&gt;` tags.",
+		"scope": "php"
+	},
 	"$field->or()": {
 		"prefix": "->or()",
 		"body": "->or()",
@@ -101,10 +131,22 @@
 		"description": "Returns the parent object of the field",
 		"scope": "php"
 	},
+	"$field->query()": {
+		"prefix": "->query()",
+		"body": "->query(${1:\\$expect = null})",
+		"description": "Uses the field value as Kirby query",
+		"scope": "php"
+	},
+	"$field->replace()": {
+		"prefix": "->replace()",
+		"body": "->replace(${1:\\$data = [ ]}, ${2:\\$fallback = ''})",
+		"description": "It parses any queries found in the field value.",
+		"scope": "php"
+	},
 	"$field->short()": {
 		"prefix": "->short()",
-		"body": "->short(${1:\\$length}, ${2:\\$appendix = '…'})",
-		"description": "Cuts the string after the given length and adds &quot;…&quot; if it is longer",
+		"body": "->short(${1:\\$length}, ${2:\\$appendix = '\u2026'})",
+		"description": "Cuts the string after the given length and adds &quot;\u2026&quot; if it is longer",
 		"scope": "php"
 	},
 	"$field->slug()": {
@@ -145,7 +187,7 @@
 	},
 	"$field->toDate()": {
 		"prefix": "->toDate()",
-		"body": "->toDate(${1:\\$format = null})",
+		"body": "->toDate(${1:\\$format = null}, ${2:\\$fallback = null})",
 		"description": "Converts the field value to a timestamp or a formatted date",
 		"scope": "php"
 	},
@@ -163,7 +205,7 @@
 	},
 	"$field->toFloat()": {
 		"prefix": "->toFloat()",
-		"body": "->toFloat(${1:\\$default = 0})",
+		"body": "->toFloat(${1:\\$default = 0.0})",
 		"description": "Converts the field value into a proper float",
 		"scope": "php"
 	},
@@ -236,13 +278,13 @@
 	"$field->value()": {
 		"prefix": "->value()",
 		"body": "->value()",
-		"description": "Returns the field content",
+		"description": "Returns the field content. If a new value is passed, the modified field will be returned. Otherwise it will return the field value.",
 		"scope": "php"
 	},
 	"$field->widont()": {
 		"prefix": "->widont()",
 		"body": "->widont()",
-		"description": "Avoids typographical widows in strings by replacing the last space with &amp;nbsp;",
+		"description": "Avoids typographical widows in strings by replacing the last space with `&amp;nbsp;`",
 		"scope": "php"
 	},
 	"$field->words()": {
@@ -261,6 +303,12 @@
 		"prefix": "->yaml()",
 		"body": "->yaml()",
 		"description": "Parses yaml in the field content and returns an array",
+		"scope": "php"
+	},
+	"$file->apiUrl()": {
+		"prefix": "->apiUrl()",
+		"body": "->apiUrl(${1:\\$relative = false})",
+		"description": "Returns the url to api endpoint",
 		"scope": "php"
 	},
 	"$file->asset()": {
@@ -287,6 +335,12 @@
 		"description": "Converts the image to black and white",
 		"scope": "php"
 	},
+	"$file->callMethod()": {
+		"prefix": "->callMethod()",
+		"body": "->callMethod(${1:\\$method}, ${2:\\$args = [ ]})",
+		"description": "Calls a registered method class with the passed arguments",
+		"scope": "php"
+	},
 	"$file->changeName()": {
 		"prefix": "->changeName()",
 		"body": "->changeName(${1:\\$name}, ${2:\\$sanitize = true})",
@@ -311,10 +365,46 @@
 		"description": "Returns the content",
 		"scope": "php"
 	},
-	"File::create()": {
-		"prefix": "->create()",
-		"body": "->create(${1:\\$props})",
-		"description": "Creates a new file on disk and returns the File object. The store is used to handle file writing, so it can be replaced by any other way of generating files.",
+	"$file->contentFile()": {
+		"prefix": "->contentFile()",
+		"body": "->contentFile(${1:\\$languageCode = null}, ${2:\\$force = false})",
+		"description": "Returns the absolute path to the content file",
+		"scope": "php"
+	},
+	"$file->contentFileData()": {
+		"prefix": "->contentFileData()",
+		"body": "->contentFileData(${1:\\$data}, ${2:\\$languageCode = null})",
+		"description": "Store the template in addition to the other content.",
+		"scope": "php"
+	},
+	"$file->contentFileDirectory()": {
+		"prefix": "->contentFileDirectory()",
+		"body": "->contentFileDirectory()",
+		"description": "Returns the directory in which the content file is located",
+		"scope": "php"
+	},
+	"$file->contentFileExtension()": {
+		"prefix": "->contentFileExtension()",
+		"body": "->contentFileExtension()",
+		"description": "Returns the extension of the content file",
+		"scope": "php"
+	},
+	"$file->contentFileName()": {
+		"prefix": "->contentFileName()",
+		"body": "->contentFileName()",
+		"description": "Filename for the content file",
+		"scope": "php"
+	},
+	"$file->contentFiles()": {
+		"prefix": "->contentFiles()",
+		"body": "->contentFiles()",
+		"description": "Returns an array with all content files",
+		"scope": "php"
+	},
+	"$file->copy()": {
+		"prefix": "->copy()",
+		"body": "->copy(${1:\\$page})",
+		"description": "Copy the file to the given page",
 		"scope": "php"
 	},
 	"$file->crop()": {
@@ -333,6 +423,12 @@
 		"prefix": "->delete()",
 		"body": "->delete()",
 		"description": "Deletes the file. The store is used to manipulate the filesystem or whatever you prefer.",
+		"scope": "php"
+	},
+	"$file->dragText()": {
+		"prefix": "->dragText()",
+		"body": "->dragText(${1:\\$type = null}, ${2:\\$absolute = false})",
+		"description": "Provides a kirbytag or markdown tag for the file, which will be used in the panel, when the file gets dragged onto a textarea",
 		"scope": "php"
 	},
 	"$file->errors()": {
@@ -365,21 +461,39 @@
 		"description": "Returns the parent Files collection",
 		"scope": "php"
 	},
+	"$file->grayscale()": {
+		"prefix": "->grayscale()",
+		"body": "->grayscale()",
+		"description": "Alias for File::bw()",
+		"scope": "php"
+	},
+	"$file->greyscale()": {
+		"prefix": "->greyscale()",
+		"body": "->greyscale()",
+		"description": "Alias for File::bw()",
+		"scope": "php"
+	},
 	"$file->hardcopy()": {
 		"prefix": "->hardcopy()",
 		"body": "->hardcopy()",
 		"description": "Creates a clone and fetches all lazy-loaded getters to get a full copy",
 		"scope": "php"
 	},
+	"$file->hasMethod()": {
+		"prefix": "->hasMethod()",
+		"body": "->hasMethod(${1:\\$method})",
+		"description": "Checks if the object has a registered method",
+		"scope": "php"
+	},
 	"$file->hasNext()": {
 		"prefix": "->hasNext()",
-		"body": "->hasNext()",
+		"body": "->hasNext(${1:\\$collection = null})",
 		"description": "Checks if there&#039;s a next item in the collection",
 		"scope": "php"
 	},
 	"$file->hasPrev()": {
 		"prefix": "->hasPrev()",
-		"body": "->hasPrev()",
+		"body": "->hasPrev(${1:\\$collection = null})",
 		"description": "Checks if there&#039;s a previous item in the collection",
 		"scope": "php"
 	},
@@ -403,8 +517,8 @@
 	},
 	"$file->indexOf()": {
 		"prefix": "->indexOf()",
-		"body": "->indexOf()",
-		"description": "Returns the position / index in the collection",
+		"body": "->indexOf(${1:\\$collection = null})",
+		"description": "Returns the position \/ index in the collection",
 		"scope": "php"
 	},
 	"$file->is()": {
@@ -415,20 +529,32 @@
 	},
 	"$file->isFirst()": {
 		"prefix": "->isFirst()",
-		"body": "->isFirst()",
+		"body": "->isFirst(${1:\\$collection = null})",
 		"description": "Checks if the item is the first in the collection",
 		"scope": "php"
 	},
 	"$file->isLast()": {
 		"prefix": "->isLast()",
-		"body": "->isLast()",
+		"body": "->isLast(${1:\\$collection = null})",
 		"description": "Checks if the item is the last in the collection",
+		"scope": "php"
+	},
+	"$file->isLocked()": {
+		"prefix": "->isLocked()",
+		"body": "->isLocked()",
+		"description": "Checks if the model is locked for the current user",
 		"scope": "php"
 	},
 	"$file->isNth()": {
 		"prefix": "->isNth()",
-		"body": "->isNth(${1:\\$n})",
+		"body": "->isNth(${1:\\$n}, ${2:\\$collection = null})",
 		"description": "Checks if the item is at a certain position",
+		"scope": "php"
+	},
+	"$file->isReadable()": {
+		"prefix": "->isReadable()",
+		"body": "->isReadable()",
+		"description": "Check if the file can be read by the current user",
 		"scope": "php"
 	},
 	"$file->isResizable()": {
@@ -455,21 +581,57 @@
 		"description": "Returns the app instance",
 		"scope": "php"
 	},
+	"$file->lock()": {
+		"prefix": "->lock()",
+		"body": "->lock()",
+		"description": "Returns the lock object for this model",
+		"scope": "php"
+	},
+	"$file->mediaHash()": {
+		"prefix": "->mediaHash()",
+		"body": "->mediaHash()",
+		"description": "Creates a unique media hash",
+		"scope": "php"
+	},
+	"$file->mediaRoot()": {
+		"prefix": "->mediaRoot()",
+		"body": "->mediaRoot()",
+		"description": "Returns the absolute path to the file in the public media folder",
+		"scope": "php"
+	},
+	"$file->mediaToken()": {
+		"prefix": "->mediaToken()",
+		"body": "->mediaToken()",
+		"description": "Creates a non-guessable token string for this file",
+		"scope": "php"
+	},
+	"$file->mediaUrl()": {
+		"prefix": "->mediaUrl()",
+		"body": "->mediaUrl()",
+		"description": "Returns the absolute Url to the file in the public media folder",
+		"scope": "php"
+	},
+	"$file->meta()": {
+		"prefix": "->meta()",
+		"body": "->meta()",
+		"description": "",
+		"scope": "php"
+	},
 	"$file->modified()": {
 		"prefix": "->modified()",
-		"body": "->modified(${1:\\$format = null}, ${2:\\$handler = null})",
+		"body": "->modified(${1:\\$format = null}, ${2:\\$handler = null}, ${3:\\$languageCode = null})",
 		"description": "Get the file&#039;s last modification time.",
 		"scope": "php"
 	},
 	"$file->next()": {
 		"prefix": "->next()",
-		"body": "->next()",
+		"body": "->next(${1:\\$collection = null})",
 		"description": "Returns the next item in the collection if available",
 		"scope": "php"
 	},
 	"$file->nextAll()": {
 		"prefix": "->nextAll()",
-		"body": "->nextAll()",
+		"body": "->nextAll(${1:\\$collection = null})",
 		"description": "Returns the end of the collection starting after the current item",
 		"scope": "php"
 	},
@@ -479,10 +641,52 @@
 		"description": "Returns the parent Page object",
 		"scope": "php"
 	},
+	"$file->panelIcon()": {
+		"prefix": "->panelIcon()",
+		"body": "->panelIcon(${1:\\$params = null})",
+		"description": "Panel icon definition",
+		"scope": "php"
+	},
+	"$file->panelImage()": {
+		"prefix": "->panelImage()",
+		"body": "->panelImage(${1:\\$settings = null})",
+		"description": "",
+		"scope": "php"
+	},
+	"$file->panelOptions()": {
+		"prefix": "->panelOptions()",
+		"body": "->panelOptions(${1:\\$unlock = [ ]})",
+		"description": "Returns an array of all actions that can be performed in the Panel This also checks for the lock status",
+		"scope": "php"
+	},
+	"$file->panelPath()": {
+		"prefix": "->panelPath()",
+		"body": "->panelPath()",
+		"description": "Returns the full path without leading slash",
+		"scope": "php"
+	},
+	"$file->panelPickerData()": {
+		"prefix": "->panelPickerData()",
+		"body": "->panelPickerData(${1:\\$params = [ ]})",
+		"description": "Prepares the response data for file pickers and file fields",
+		"scope": "php"
+	},
+	"$file->panelUrl()": {
+		"prefix": "->panelUrl()",
+		"body": "->panelUrl(${1:\\$relative = false})",
+		"description": "Returns the url to the editing view in the panel",
+		"scope": "php"
+	},
 	"$file->parent()": {
 		"prefix": "->parent()",
 		"body": "->parent()",
 		"description": "Returns the parent Model object",
+		"scope": "php"
+	},
+	"$file->parentId()": {
+		"prefix": "->parentId()",
+		"body": "->parentId()",
+		"description": "Returns the parent id if a parent exists",
 		"scope": "php"
 	},
 	"$file->parents()": {
@@ -499,13 +703,13 @@
 	},
 	"$file->prev()": {
 		"prefix": "->prev()",
-		"body": "->prev()",
+		"body": "->prev(${1:\\$collection = null})",
 		"description": "Returns the previous item in the collection if available",
 		"scope": "php"
 	},
 	"$file->prevAll()": {
 		"prefix": "->prevAll()",
-		"body": "->prevAll()",
+		"body": "->prevAll(${1:\\$collection = null})",
 		"description": "Returns the beginning of the collection before the current item",
 		"scope": "php"
 	},
@@ -521,10 +725,22 @@
 		"description": "Sets the JPEG compression quality",
 		"scope": "php"
 	},
+	"$file->query()": {
+		"prefix": "->query()",
+		"body": "->query(${1:\\$query = null}, ${2:\\$expect = null})",
+		"description": "Creates a string query, starting from the model",
+		"scope": "php"
+	},
 	"$file->readContent()": {
 		"prefix": "->readContent()",
 		"body": "->readContent(${1:\\$languageCode = null})",
 		"description": "Read the content from the content file",
+		"scope": "php"
+	},
+	"$file->rename()": {
+		"prefix": "->rename()",
+		"body": "->rename(${1:\\$name}, ${2:\\$sanitize = true})",
+		"description": "",
 		"scope": "php"
 	},
 	"$file->replace()": {
@@ -551,6 +767,12 @@
 		"description": "Stores the content on disk",
 		"scope": "php"
 	},
+	"$file->setSite()": {
+		"prefix": "->setSite()",
+		"body": "->setSite(${1:\\$site = null})",
+		"description": "Setter for the parent site object",
+		"scope": "php"
+	},
 	"$file->siblings()": {
 		"prefix": "->siblings()",
 		"body": "->siblings(${1:\\$self = true})",
@@ -561,6 +783,12 @@
 		"prefix": "->site()",
 		"body": "->site()",
 		"description": "Returns the parent Site object",
+		"scope": "php"
+	},
+	"$file->srcset()": {
+		"prefix": "->srcset()",
+		"body": "->srcset(${1:\\$sizes = null})",
+		"description": "Create a srcset definition for the given sizes Sizes can be defined as a simple array. They can also be set up in the config with the thumbs.srcsets option.",
 		"scope": "php"
 	},
 	"$file->template()": {
@@ -578,7 +806,7 @@
 	"$file->thumb()": {
 		"prefix": "->thumb()",
 		"body": "->thumb(${1:\\$options = null})",
-		"description": "Creates a modified version of images The media manager takes care of generating those modified versions and putting them in the right place. This is normally the /media folder of your installation, but could potentially also be a CDN or any other place.",
+		"description": "Creates a modified version of images The media manager takes care of generating those modified versions and putting them in the right place. This is normally the `\/media` folder of your installation, but could potentially also be a CDN or any other place.",
 		"scope": "php"
 	},
 	"$file->toArray()": {
@@ -589,7 +817,7 @@
 	},
 	"$file->toString()": {
 		"prefix": "->toString()",
-		"body": "->toString(${1:\\$template = null})",
+		"body": "->toString(${1:\\$template = null}, ${2:\\$data = [ ]}, ${3:\\$fallback = ''})",
 		"description": "String template builder",
 		"scope": "php"
 	},
@@ -647,10 +875,22 @@
 		"description": "Appends an element to the data array",
 		"scope": "php"
 	},
+	"$files->callMethod()": {
+		"prefix": "->callMethod()",
+		"body": "->callMethod(${1:\\$method}, ${2:\\$args = [ ]})",
+		"description": "Calls a registered method class with the passed arguments",
+		"scope": "php"
+	},
 	"$files->changeSort()": {
 		"prefix": "->changeSort()",
-		"body": "->changeSort(${1:\\$files})",
+		"body": "->changeSort(${1:\\$files}, ${2:\\$offset = 0})",
 		"description": "Sort all given files by the order in the array",
+		"scope": "php"
+	},
+	"$files->chunk()": {
+		"prefix": "->chunk()",
+		"body": "->chunk(${1:\\$size})",
+		"description": "Creates chunks of the same size.",
 		"scope": "php"
 	},
 	"$files->clone()": {
@@ -677,10 +917,16 @@
 		"description": "Getter and setter for the data",
 		"scope": "php"
 	},
-	"Files::factory()": {
-		"prefix": "->factory()",
-		"body": "->factory(${1:\\$files}, ${2:\\$parent})",
-		"description": "Creates a files collection from an array of props",
+	"$files->empty()": {
+		"prefix": "->empty()",
+		"body": "->empty()",
+		"description": "Clone and remove all elements from the collection",
+		"scope": "php"
+	},
+	"$files->extend()": {
+		"prefix": "->extend()",
+		"body": "->extend(${1:\\$items})",
+		"description": "Adds all elements to the collection",
 		"scope": "php"
 	},
 	"$files->filter()": {
@@ -710,7 +956,7 @@
 	"$files->findById()": {
 		"prefix": "->findById()",
 		"body": "->findById(${1:\\$id})",
-		"description": "Tries to find a file by id/filename",
+		"description": "Tries to find a file by id\/filename",
 		"scope": "php"
 	},
 	"$files->findByKey()": {
@@ -731,6 +977,24 @@
 		"description": "Returns the elements in reverse order",
 		"scope": "php"
 	},
+	"$files->get()": {
+		"prefix": "->get()",
+		"body": "->get(${1:\\$key}, ${2:\\$default = null})",
+		"description": "Getter",
+		"scope": "php"
+	},
+	"$files->getAttribute()": {
+		"prefix": "->getAttribute()",
+		"body": "->getAttribute(${1:\\$item}, ${2:\\$attribute}, ${3:\\$split = false}, ${4:\\$related = null})",
+		"description": "Extracts an attribute value from the given element in the collection. This is useful if elements in the collection might be objects, arrays or anything else and you need to get the value independently from that. We use it for filterBy.",
+		"scope": "php"
+	},
+	"$files->getIterator()": {
+		"prefix": "->getIterator()",
+		"body": "->getIterator()",
+		"description": "Get an iterator for the items.",
+		"scope": "php"
+	},
 	"$files->group()": {
 		"prefix": "->group()",
 		"body": "->group(${1:\\$callback})",
@@ -740,7 +1004,7 @@
 	"$files->groupBy()": {
 		"prefix": "->groupBy()",
 		"body": "->groupBy(${1:\\$field}, ${2:\\$i = true})",
-		"description": "Groups the items by a given field",
+		"description": "Groups the items by a given field. Returns a collection with an item for each group and a collection for each group.",
 		"scope": "php"
 	},
 	"$files->has()": {
@@ -749,10 +1013,28 @@
 		"description": "Checks if the given object or id is in the collection",
 		"scope": "php"
 	},
+	"$files->hasMethod()": {
+		"prefix": "->hasMethod()",
+		"body": "->hasMethod(${1:\\$method})",
+		"description": "Checks if the object has a registered method",
+		"scope": "php"
+	},
 	"$files->indexOf()": {
 		"prefix": "->indexOf()",
 		"body": "->indexOf(${1:\\$object})",
 		"description": "Correct position detection for objects.",
+		"scope": "php"
+	},
+	"$files->intersection()": {
+		"prefix": "->intersection()",
+		"body": "->intersection(${1:\\$other})",
+		"description": "Returns a Collection with the intersection of the given elements",
+		"scope": "php"
+	},
+	"$files->intersects()": {
+		"prefix": "->intersects()",
+		"body": "->intersects(${1:\\$other})",
+		"description": "Checks if there is an intersection between the given collection and this collection",
 		"scope": "php"
 	},
 	"$files->isEmpty()": {
@@ -770,7 +1052,7 @@
 	"$files->isNotEmpty()": {
 		"prefix": "->isNotEmpty()",
 		"body": "->isNotEmpty()",
-		"description": "CChecks if the number of elements is more than zero",
+		"description": "Checks if the number of elements is more than zero",
 		"scope": "php"
 	},
 	"$files->isOdd()": {
@@ -842,7 +1124,7 @@
 	"$files->paginate()": {
 		"prefix": "->paginate()",
 		"body": "->paginate(${1:\\$arguments = null})",
-		"description": "Add pagination",
+		"description": "Add pagination and return a sliced set of data.",
 		"scope": "php"
 	},
 	"$files->pagination()": {
@@ -877,8 +1159,8 @@
 	},
 	"$files->query()": {
 		"prefix": "->query()",
-		"body": "->query(${1:\\$arguments = [ ]})",
-		"description": "Runs a combination of filterBy, sortBy, not offset, limit and paginate on the collection.",
+		"body": "->query(${1:\\$query = [ ]})",
+		"description": "Runs a combination of filterBy, sortBy, not offset, limit, search and paginate on the collection.",
 		"scope": "php"
 	},
 	"$files->remove()": {
@@ -953,16 +1235,46 @@
 		"description": "Checks if the current element is valid",
 		"scope": "php"
 	},
+	"$files->values()": {
+		"prefix": "->values()",
+		"body": "->values()",
+		"description": "Returns an non-associative array with all values",
+		"scope": "php"
+	},
+	"$files->when()": {
+		"prefix": "->when()",
+		"body": "->when(${1:\\$condition}, ${2:\\$callback}, ${3:\\$fallback = null})",
+		"description": "The when method only executes the given Closure when the first parameter is true. If the first parameter is false, the Closure will not be executed.",
+		"scope": "php"
+	},
 	"$files->without()": {
 		"prefix": "->without()",
 		"body": "->without(${1:\\$keys = null})",
 		"description": "Alias for $this-&gt;not()",
 		"scope": "php"
 	},
+	"$kirby->api()": {
+		"prefix": "->api()",
+		"body": "->api()",
+		"description": "Returns the Api instance",
+		"scope": "php"
+	},
+	"$kirby->apply()": {
+		"prefix": "->apply()",
+		"body": "->apply(${1:\\$name}, ${2:\\$args}, ${3:\\$modify}, ${4:\\$originalEvent = null})",
+		"description": "Applies a hook to the given value",
+		"scope": "php"
+	},
 	"$kirby->auth()": {
 		"prefix": "->auth()",
 		"body": "->auth()",
 		"description": "Returns the Authentication layer class",
+		"scope": "php"
+	},
+	"$kirby->blueprints()": {
+		"prefix": "->blueprints()",
+		"body": "->blueprints(${1:\\$type = 'pages'})",
+		"description": "Returns all available blueprints for this installation",
 		"scope": "php"
 	},
 	"$kirby->cache()": {
@@ -995,6 +1307,30 @@
 		"description": "Returns all user-defined collections",
 		"scope": "php"
 	},
+	"$kirby->component()": {
+		"prefix": "->component()",
+		"body": "->component(${1:\\$name})",
+		"description": "Returns a core component",
+		"scope": "php"
+	},
+	"$kirby->contentExtension()": {
+		"prefix": "->contentExtension()",
+		"body": "->contentExtension()",
+		"description": "Returns the content extension",
+		"scope": "php"
+	},
+	"$kirby->contentIgnore()": {
+		"prefix": "->contentIgnore()",
+		"body": "->contentIgnore()",
+		"description": "Returns files that should be ignored when scanning folders",
+		"scope": "php"
+	},
+	"$kirby->contentToken()": {
+		"prefix": "->contentToken()",
+		"body": "->contentToken(${1:\\$model}, ${2:\\$value})",
+		"description": "Generates a non-guessable token based on model data and a configured salt",
+		"scope": "php"
+	},
 	"$kirby->controller()": {
 		"prefix": "->controller()",
 		"body": "->controller(${1:\\$name}, ${2:\\$arguments = [ ]}, ${3:\\$contentType = 'html'})",
@@ -1017,6 +1353,12 @@
 		"prefix": "->email()",
 		"body": "->email(${1:\\$preset = [ ]}, ${2:\\$props = [ ]})",
 		"description": "Returns the Email singleton",
+		"scope": "php"
+	},
+	"$kirby->extend()": {
+		"prefix": "->extend()",
+		"body": "->extend(${1:\\$extensions}, ${2:\\$plugin = null})",
+		"description": "Register all given extensions",
 		"scope": "php"
 	},
 	"$kirby->extension()": {
@@ -1045,14 +1387,32 @@
 	},
 	"$kirby->impersonate()": {
 		"prefix": "->impersonate()",
-		"body": "->impersonate(${1:\\$who = null})",
+		"body": "->impersonate(${1:\\$who = null}, ${2:\\$callback = null})",
 		"description": "Become any existing user",
 		"scope": "php"
 	},
-	"Kirby::instance()": {
-		"prefix": "->instance()",
-		"body": "->instance(${1:\\$instance = null})",
-		"description": "Returns the current App instance",
+	"$kirby->io()": {
+		"prefix": "->io()",
+		"body": "->io(${1:\\$input})",
+		"description": "Takes almost any kind of input and tries to convert it into a valid response",
+		"scope": "php"
+	},
+	"$kirby->kirbytag()": {
+		"prefix": "->kirbytag()",
+		"body": "->kirbytag(${1:\\$type}, ${2:\\$value = null}, ${3:\\$attr = [ ]}, ${4:\\$data = [ ]})",
+		"description": "Renders a single KirbyTag with the given attributes",
+		"scope": "php"
+	},
+	"$kirby->kirbytags()": {
+		"prefix": "->kirbytags()",
+		"body": "->kirbytags(${1:\\$text = null}, ${2:\\$data = [ ]})",
+		"description": "KirbyTags Parser",
+		"scope": "php"
+	},
+	"$kirby->kirbytext()": {
+		"prefix": "->kirbytext()",
+		"body": "->kirbytext(${1:\\$text = null}, ${2:\\$data = [ ]}, ${3:\\$inline = false})",
+		"description": "Parses KirbyTags first and Markdown afterwards",
 		"scope": "php"
 	},
 	"$kirby->language()": {
@@ -1061,10 +1421,46 @@
 		"description": "Returns the current language",
 		"scope": "php"
 	},
+	"$kirby->languageCode()": {
+		"prefix": "->languageCode()",
+		"body": "->languageCode(${1:\\$languageCode = null})",
+		"description": "Returns the current language code",
+		"scope": "php"
+	},
 	"$kirby->languages()": {
 		"prefix": "->languages()",
 		"body": "->languages()",
 		"description": "Returns all available site languages",
+		"scope": "php"
+	},
+	"$kirby->locks()": {
+		"prefix": "->locks()",
+		"body": "->locks()",
+		"description": "Returns the app&#039;s locks object",
+		"scope": "php"
+	},
+	"$kirby->markdown()": {
+		"prefix": "->markdown()",
+		"body": "->markdown(${1:\\$text = null}, ${2:\\$inline = false})",
+		"description": "Parses Markdown",
+		"scope": "php"
+	},
+	"$kirby->multilang()": {
+		"prefix": "->multilang()",
+		"body": "->multilang()",
+		"description": "Check for a multilang setup",
+		"scope": "php"
+	},
+	"$kirby->nativeComponent()": {
+		"prefix": "->nativeComponent()",
+		"body": "->nativeComponent(${1:\\$component})",
+		"description": "Returns the native implementation of a core component",
+		"scope": "php"
+	},
+	"$kirby->nonce()": {
+		"prefix": "->nonce()",
+		"body": "->nonce()",
+		"description": "Returns the nonce, which is used in the panel for inline scripts",
 		"scope": "php"
 	},
 	"$kirby->option()": {
@@ -1081,7 +1477,7 @@
 	},
 	"$kirby->page()": {
 		"prefix": "->page()",
-		"body": "->page(${1:\\$id}, ${2:\\$parent = null}, ${3:\\$drafts = true})",
+		"body": "->page(${1:\\$id = null}, ${2:\\$parent = null}, ${3:\\$drafts = true})",
 		"description": "Returns any page from the content folder",
 		"scope": "php"
 	},
@@ -1091,16 +1487,10 @@
 		"description": "Returns the request path",
 		"scope": "php"
 	},
-	"Kirby::plugin()": {
-		"prefix": "->plugin()",
-		"body": "->plugin(${1:\\$name}, ${2:\\$extends = null})",
-		"description": "Kirby plugin factory and getter",
-		"scope": "php"
-	},
 	"$kirby->plugins()": {
 		"prefix": "->plugins()",
 		"body": "->plugins(${1:\\$plugins = null})",
-		"description": "Loads and returns all plugins in the site/plugins directory Loading only happens on the first call.",
+		"description": "Loads and returns all plugins in the site\/plugins directory Loading only happens on the first call.",
 		"scope": "php"
 	},
 	"$kirby->render()": {
@@ -1151,6 +1541,12 @@
 		"description": "Returns the currently active route",
 		"scope": "php"
 	},
+	"$kirby->router()": {
+		"prefix": "->router()",
+		"body": "->router()",
+		"description": "Returns the Router singleton",
+		"scope": "php"
+	},
 	"$kirby->routes()": {
 		"prefix": "->routes()",
 		"body": "->routes()",
@@ -1169,16 +1565,58 @@
 		"description": "Returns the current session object",
 		"scope": "php"
 	},
+	"$kirby->sessionHandler()": {
+		"prefix": "->sessionHandler()",
+		"body": "->sessionHandler()",
+		"description": "Returns the session handler",
+		"scope": "php"
+	},
+	"$kirby->setCurrentLanguage()": {
+		"prefix": "->setCurrentLanguage()",
+		"body": "->setCurrentLanguage(${1:\\$languageCode = null})",
+		"description": "Load and set the current language if it exists Otherwise fall back to the default language",
+		"scope": "php"
+	},
+	"$kirby->setCurrentTranslation()": {
+		"prefix": "->setCurrentTranslation()",
+		"body": "->setCurrentTranslation(${1:\\$translationCode = null})",
+		"description": "Set the current translation",
+		"scope": "php"
+	},
+	"$kirby->setLocale()": {
+		"prefix": "->setLocale()",
+		"body": "->setLocale(${1:\\$locale})",
+		"description": "Set locale settings",
+		"scope": "php"
+	},
 	"$kirby->site()": {
 		"prefix": "->site()",
 		"body": "->site()",
 		"description": "Initializes and returns the Site object",
 		"scope": "php"
 	},
+	"$kirby->smartypants()": {
+		"prefix": "->smartypants()",
+		"body": "->smartypants(${1:\\$text = null})",
+		"description": "Applies the smartypants rule on the text",
+		"scope": "php"
+	},
+	"$kirby->snippet()": {
+		"prefix": "->snippet()",
+		"body": "->snippet(${1:\\$name}, ${2:\\$data = [ ]})",
+		"description": "Uses the snippet component to create and return a template snippet",
+		"scope": "php"
+	},
 	"$kirby->system()": {
 		"prefix": "->system()",
 		"body": "->system()",
 		"description": "System check class",
+		"scope": "php"
+	},
+	"$kirby->template()": {
+		"prefix": "->template()",
+		"body": "->template(${1:\\$name}, ${2:\\$type = 'html'}, ${3:\\$defaultType = 'html'})",
+		"description": "Uses the template component to initialize and return the Template object",
 		"scope": "php"
 	},
 	"$kirby->thumb()": {
@@ -1201,7 +1639,7 @@
 	},
 	"$kirby->trigger()": {
 		"prefix": "->trigger()",
-		"body": "->trigger(${1:\\$name}, ${2:\\$arguments = null})",
+		"body": "->trigger(${1:\\$name}, ${2:\\$args = [ ]}, ${3:\\$originalEvent = null})",
 		"description": "Trigger a hook by name",
 		"scope": "php"
 	},
@@ -1219,7 +1657,7 @@
 	},
 	"$kirby->user()": {
 		"prefix": "->user()",
-		"body": "->user(${1:\\$id = null}, ${2:\\$session = null})",
+		"body": "->user(${1:\\$id = null}, ${2:\\$allowImpersonation = true})",
 		"description": "Returns a specific user by id or the current user if no id is given",
 		"scope": "php"
 	},
@@ -1229,16 +1667,16 @@
 		"description": "Returns all users",
 		"scope": "php"
 	},
-	"Kirby::version()": {
-		"prefix": "->version()",
-		"body": "->version()",
-		"description": "Returns the current version number from the composer.json (Keep that up to date! :))",
-		"scope": "php"
-	},
 	"$kirby->visitor()": {
 		"prefix": "->visitor()",
 		"body": "->visitor()",
 		"description": "Returns the visitor object",
+		"scope": "php"
+	},
+	"$language->baseUrl()": {
+		"prefix": "->baseUrl()",
+		"body": "->baseUrl()",
+		"description": "Returns the base Url for the language without the path or other cruft",
 		"scope": "php"
 	},
 	"$language->clone()": {
@@ -1250,7 +1688,13 @@
 	"$language->code()": {
 		"prefix": "->code()",
 		"body": "->code()",
-		"description": "Returns the language code/id.",
+		"description": "Returns the language code\/id.",
+		"scope": "php"
+	},
+	"$language->delete()": {
+		"prefix": "->delete()",
+		"body": "->delete()",
+		"description": "Delete the current language and all its translation files",
 		"scope": "php"
 	},
 	"$language->direction()": {
@@ -1291,14 +1735,20 @@
 	},
 	"$language->locale()": {
 		"prefix": "->locale()",
-		"body": "->locale()",
-		"description": "Returns the PHP locale setting string",
+		"body": "->locale(${1:\\$category = null})",
+		"description": "Returns the PHP locale setting array",
 		"scope": "php"
 	},
 	"$language->name()": {
 		"prefix": "->name()",
 		"body": "->name()",
 		"description": "Returns the human-readable name of the language",
+		"scope": "php"
+	},
+	"$language->path()": {
+		"prefix": "->path()",
+		"body": "->path()",
+		"description": "Returns the URL path for the language",
 		"scope": "php"
 	},
 	"$language->pattern()": {
@@ -1313,10 +1763,46 @@
 		"description": "Returns the absolute path to the language file",
 		"scope": "php"
 	},
+	"$language->router()": {
+		"prefix": "->router()",
+		"body": "->router()",
+		"description": "Returns the LanguageRouter instance which is used to handle language specific routes.",
+		"scope": "php"
+	},
+	"$language->rules()": {
+		"prefix": "->rules()",
+		"body": "->rules()",
+		"description": "Get slug rules for language",
+		"scope": "php"
+	},
+	"$language->save()": {
+		"prefix": "->save()",
+		"body": "->save()",
+		"description": "Saves the language settings in the languages folder",
+		"scope": "php"
+	},
+	"$language->setSite()": {
+		"prefix": "->setSite()",
+		"body": "->setSite(${1:\\$site = null})",
+		"description": "Setter for the parent site object",
+		"scope": "php"
+	},
 	"$language->site()": {
 		"prefix": "->site()",
 		"body": "->site()",
 		"description": "Returns the parent Site instance",
+		"scope": "php"
+	},
+	"$language->slugs()": {
+		"prefix": "->slugs()",
+		"body": "->slugs()",
+		"description": "Returns the custom slug rules for this language",
+		"scope": "php"
+	},
+	"$language->smartypants()": {
+		"prefix": "->smartypants()",
+		"body": "->smartypants()",
+		"description": "Returns the custom SmartyPants options for this language",
 		"scope": "php"
 	},
 	"$language->toArray()": {
@@ -1329,6 +1815,12 @@
 		"prefix": "->translations()",
 		"body": "->translations()",
 		"description": "Returns the translation strings for this language",
+		"scope": "php"
+	},
+	"$language->update()": {
+		"prefix": "->update()",
+		"body": "->update(${1:\\$props = null})",
+		"description": "Update language properties and save them",
 		"scope": "php"
 	},
 	"$language->url()": {
@@ -1349,6 +1841,18 @@
 		"description": "Appends an element to the data array",
 		"scope": "php"
 	},
+	"$languages->callMethod()": {
+		"prefix": "->callMethod()",
+		"body": "->callMethod(${1:\\$method}, ${2:\\$args = [ ]})",
+		"description": "Calls a registered method class with the passed arguments",
+		"scope": "php"
+	},
+	"$languages->chunk()": {
+		"prefix": "->chunk()",
+		"body": "->chunk(${1:\\$size})",
+		"description": "Creates chunks of the same size.",
+		"scope": "php"
+	},
 	"$languages->clone()": {
 		"prefix": "->clone()",
 		"body": "->clone()",
@@ -1367,6 +1871,12 @@
 		"description": "Counts all elements",
 		"scope": "php"
 	},
+	"$languages->create()": {
+		"prefix": "->create()",
+		"body": "->create(${1:\\$props})",
+		"description": "Creates a new language with the given props",
+		"scope": "php"
+	},
 	"$languages->current()": {
 		"prefix": "->current()",
 		"body": "->current()",
@@ -1383,6 +1893,18 @@
 		"prefix": "->default()",
 		"body": "->default()",
 		"description": "Returns the default language",
+		"scope": "php"
+	},
+	"$languages->empty()": {
+		"prefix": "->empty()",
+		"body": "->empty()",
+		"description": "Clone and remove all elements from the collection",
+		"scope": "php"
+	},
+	"$languages->extend()": {
+		"prefix": "->extend()",
+		"body": "->extend(${1:\\$items})",
+		"description": "Adds all elements to the collection",
 		"scope": "php"
 	},
 	"$languages->filter()": {
@@ -1415,6 +1937,12 @@
 		"description": "Find a single element by key (id)",
 		"scope": "php"
 	},
+	"$languages->findDefault()": {
+		"prefix": "->findDefault()",
+		"body": "->findDefault()",
+		"description": "",
+		"scope": "php"
+	},
 	"$languages->first()": {
 		"prefix": "->first()",
 		"body": "->first()",
@@ -1427,6 +1955,24 @@
 		"description": "Returns the elements in reverse order",
 		"scope": "php"
 	},
+	"$languages->get()": {
+		"prefix": "->get()",
+		"body": "->get(${1:\\$key}, ${2:\\$default = null})",
+		"description": "Getter",
+		"scope": "php"
+	},
+	"$languages->getAttribute()": {
+		"prefix": "->getAttribute()",
+		"body": "->getAttribute(${1:\\$item}, ${2:\\$attribute}, ${3:\\$split = false}, ${4:\\$related = null})",
+		"description": "Extracts an attribute value from the given element in the collection. This is useful if elements in the collection might be objects, arrays or anything else and you need to get the value independently from that. We use it for filterBy.",
+		"scope": "php"
+	},
+	"$languages->getIterator()": {
+		"prefix": "->getIterator()",
+		"body": "->getIterator()",
+		"description": "Get an iterator for the items.",
+		"scope": "php"
+	},
 	"$languages->group()": {
 		"prefix": "->group()",
 		"body": "->group(${1:\\$callback})",
@@ -1436,7 +1982,7 @@
 	"$languages->groupBy()": {
 		"prefix": "->groupBy()",
 		"body": "->groupBy(${1:\\$field}, ${2:\\$i = true})",
-		"description": "Groups the items by a given field",
+		"description": "Groups the items by a given field. Returns a collection with an item for each group and a collection for each group.",
 		"scope": "php"
 	},
 	"$languages->has()": {
@@ -1445,10 +1991,28 @@
 		"description": "Checks if the given object or id is in the collection",
 		"scope": "php"
 	},
+	"$languages->hasMethod()": {
+		"prefix": "->hasMethod()",
+		"body": "->hasMethod(${1:\\$method})",
+		"description": "Checks if the object has a registered method",
+		"scope": "php"
+	},
 	"$languages->indexOf()": {
 		"prefix": "->indexOf()",
 		"body": "->indexOf(${1:\\$object})",
 		"description": "Correct position detection for objects.",
+		"scope": "php"
+	},
+	"$languages->intersection()": {
+		"prefix": "->intersection()",
+		"body": "->intersection(${1:\\$other})",
+		"description": "Returns a Collection with the intersection of the given elements",
+		"scope": "php"
+	},
+	"$languages->intersects()": {
+		"prefix": "->intersects()",
+		"body": "->intersects(${1:\\$other})",
+		"description": "Checks if there is an intersection between the given collection and this collection",
 		"scope": "php"
 	},
 	"$languages->isEmpty()": {
@@ -1466,7 +2030,7 @@
 	"$languages->isNotEmpty()": {
 		"prefix": "->isNotEmpty()",
 		"body": "->isNotEmpty()",
-		"description": "CChecks if the number of elements is more than zero",
+		"description": "Checks if the number of elements is more than zero",
 		"scope": "php"
 	},
 	"$languages->isOdd()": {
@@ -1538,7 +2102,7 @@
 	"$languages->paginate()": {
 		"prefix": "->paginate()",
 		"body": "->paginate(${1:\\$arguments = null})",
-		"description": "Add pagination",
+		"description": "Add pagination and return a sliced set of data.",
 		"scope": "php"
 	},
 	"$languages->pagination()": {
@@ -1573,8 +2137,8 @@
 	},
 	"$languages->query()": {
 		"prefix": "->query()",
-		"body": "->query(${1:\\$arguments = [ ]})",
-		"description": "Runs a combination of filterBy, sortBy, not offset, limit and paginate on the collection.",
+		"body": "->query(${1:\\$query = [ ]})",
+		"description": "Runs a combination of filterBy, sortBy, not offset, limit, search and paginate on the collection.",
 		"scope": "php"
 	},
 	"$languages->remove()": {
@@ -1643,10 +2207,28 @@
 		"description": "Checks if the current element is valid",
 		"scope": "php"
 	},
+	"$languages->values()": {
+		"prefix": "->values()",
+		"body": "->values()",
+		"description": "Returns an non-associative array with all values",
+		"scope": "php"
+	},
+	"$languages->when()": {
+		"prefix": "->when()",
+		"body": "->when(${1:\\$condition}, ${2:\\$callback}, ${3:\\$fallback = null})",
+		"description": "The when method only executes the given Closure when the first parameter is true. If the first parameter is false, the Closure will not be executed.",
+		"scope": "php"
+	},
 	"$languages->without()": {
 		"prefix": "->without()",
 		"body": "->without(${1:\\$keys = null})",
 		"description": "Alias for $this-&gt;not()",
+		"scope": "php"
+	},
+	"$page->apiUrl()": {
+		"prefix": "->apiUrl()",
+		"body": "->apiUrl(${1:\\$relative = false})",
+		"description": "Returns the url to the api endpoint",
 		"scope": "php"
 	},
 	"$page->audio()": {
@@ -1667,6 +2249,12 @@
 		"description": "Returns an array with all blueprints that are available for the page",
 		"scope": "php"
 	},
+	"$page->callMethod()": {
+		"prefix": "->callMethod()",
+		"body": "->callMethod(${1:\\$method}, ${2:\\$args = [ ]})",
+		"description": "Calls a registered method class with the passed arguments",
+		"scope": "php"
+	},
 	"$page->changeNum()": {
 		"prefix": "->changeNum()",
 		"body": "->changeNum(${1:\\$num = null})",
@@ -1676,7 +2264,7 @@
 	"$page->changeSlug()": {
 		"prefix": "->changeSlug()",
 		"body": "->changeSlug(${1:\\$slug}, ${2:\\$languageCode = null})",
-		"description": "Changes the slug/uid of the page",
+		"description": "Changes the slug\/uid of the page",
 		"scope": "php"
 	},
 	"$page->changeStatus()": {
@@ -1727,10 +2315,52 @@
 		"description": "Returns the content",
 		"scope": "php"
 	},
-	"Page::create()": {
-		"prefix": "->create()",
-		"body": "->create(${1:\\$props})",
-		"description": "Creates and stores a new page",
+	"$page->contentFile()": {
+		"prefix": "->contentFile()",
+		"body": "->contentFile(${1:\\$languageCode = null}, ${2:\\$force = false})",
+		"description": "Returns the absolute path to the content file",
+		"scope": "php"
+	},
+	"$page->contentFileData()": {
+		"prefix": "->contentFileData()",
+		"body": "->contentFileData(${1:\\$data}, ${2:\\$languageCode = null})",
+		"description": "Prepares the content for the write method",
+		"scope": "php"
+	},
+	"$page->contentFileDirectory()": {
+		"prefix": "->contentFileDirectory()",
+		"body": "->contentFileDirectory()",
+		"description": "Returns the absolute path to the folder in which the content file is located",
+		"scope": "php"
+	},
+	"$page->contentFileExtension()": {
+		"prefix": "->contentFileExtension()",
+		"body": "->contentFileExtension()",
+		"description": "Returns the extension of the content file",
+		"scope": "php"
+	},
+	"$page->contentFileName()": {
+		"prefix": "->contentFileName()",
+		"body": "->contentFileName(${1:\\$languageCode = null})",
+		"description": "Returns the content text file which is found by the inventory method",
+		"scope": "php"
+	},
+	"$page->contentFiles()": {
+		"prefix": "->contentFiles()",
+		"body": "->contentFiles()",
+		"description": "Returns an array with all content files",
+		"scope": "php"
+	},
+	"$page->controller()": {
+		"prefix": "->controller()",
+		"body": "->controller(${1:\\$data = [ ]}, ${2:\\$contentType = 'html'})",
+		"description": "Call the page controller",
+		"scope": "php"
+	},
+	"$page->copy()": {
+		"prefix": "->copy()",
+		"body": "->copy(${1:\\$options = [ ]})",
+		"description": "Copies the page to a new parent",
 		"scope": "php"
 	},
 	"$page->createChild()": {
@@ -1799,6 +2429,18 @@
 		"description": "Return all drafts of the model",
 		"scope": "php"
 	},
+	"$page->dragText()": {
+		"prefix": "->dragText()",
+		"body": "->dragText(${1:\\$type = null})",
+		"description": "Provides a kirbytag or markdown tag for the page, which will be used in the panel, when the page gets dragged onto a textarea",
+		"scope": "php"
+	},
+	"$page->duplicate()": {
+		"prefix": "->duplicate()",
+		"body": "->duplicate(${1:\\$slug = null}, ${2:\\$options = [ ]})",
+		"description": "Duplicates the page with the given slug and optionally copies all files",
+		"scope": "php"
+	},
 	"$page->errors()": {
 		"prefix": "->errors()",
 		"body": "->errors()",
@@ -1809,12 +2451,6 @@
 		"prefix": "->exists()",
 		"body": "->exists()",
 		"description": "Checks if the page exists on disk",
-		"scope": "php"
-	},
-	"Page::factory()": {
-		"prefix": "->factory()",
-		"body": "->factory(${1:\\$props})",
-		"description": "Constructs a Page object and also takes page models into account.",
 		"scope": "php"
 	},
 	"$page->file()": {
@@ -1839,6 +2475,12 @@
 		"prefix": "->findPageOrDraft()",
 		"body": "->findPageOrDraft(${1:\\$path})",
 		"description": "Finds a single page or draft",
+		"scope": "php"
+	},
+	"$page->go()": {
+		"prefix": "->go()",
+		"body": "->go(${1:\\$options = [ ]}, ${2:\\$code = 302})",
+		"description": "Redirects to this page, wrapper for the `go()` helper",
 		"scope": "php"
 	},
 	"$page->grandChildren()": {
@@ -1895,46 +2537,82 @@
 		"description": "Checks if the Files collection has any images",
 		"scope": "php"
 	},
+	"$page->hasInvisibleChildren()": {
+		"prefix": "->hasInvisibleChildren()",
+		"body": "->hasInvisibleChildren()",
+		"description": "",
+		"scope": "php"
+	},
 	"$page->hasListedChildren()": {
 		"prefix": "->hasListedChildren()",
 		"body": "->hasListedChildren()",
 		"description": "Checks if the page has any listed children",
 		"scope": "php"
 	},
+	"$page->hasMethod()": {
+		"prefix": "->hasMethod()",
+		"body": "->hasMethod(${1:\\$method})",
+		"description": "Checks if the object has a registered method",
+		"scope": "php"
+	},
 	"$page->hasNext()": {
 		"prefix": "->hasNext()",
-		"body": "->hasNext()",
+		"body": "->hasNext(${1:\\$collection = null})",
 		"description": "Checks if there&#039;s a next item in the collection",
+		"scope": "php"
+	},
+	"$page->hasNextInvisible()": {
+		"prefix": "->hasNextInvisible()",
+		"body": "->hasNextInvisible()",
+		"description": "",
 		"scope": "php"
 	},
 	"$page->hasNextListed()": {
 		"prefix": "->hasNextListed()",
-		"body": "->hasNextListed()",
+		"body": "->hasNextListed(${1:\\$collection = null})",
 		"description": "Checks if there&#039;s a next listed page in the siblings collection",
 		"scope": "php"
 	},
 	"$page->hasNextUnlisted()": {
 		"prefix": "->hasNextUnlisted()",
-		"body": "->hasNextUnlisted()",
+		"body": "->hasNextUnlisted(${1:\\$collection = null})",
 		"description": "Checks if there&#039;s a next unlisted page in the siblings collection",
+		"scope": "php"
+	},
+	"$page->hasNextVisible()": {
+		"prefix": "->hasNextVisible()",
+		"body": "->hasNextVisible()",
+		"description": "",
 		"scope": "php"
 	},
 	"$page->hasPrev()": {
 		"prefix": "->hasPrev()",
-		"body": "->hasPrev()",
+		"body": "->hasPrev(${1:\\$collection = null})",
 		"description": "Checks if there&#039;s a previous item in the collection",
+		"scope": "php"
+	},
+	"$page->hasPrevInvisible()": {
+		"prefix": "->hasPrevInvisible()",
+		"body": "->hasPrevInvisible()",
+		"description": "",
 		"scope": "php"
 	},
 	"$page->hasPrevListed()": {
 		"prefix": "->hasPrevListed()",
-		"body": "->hasPrevListed()",
+		"body": "->hasPrevListed(${1:\\$collection = null})",
 		"description": "Checks if there&#039;s a previous listed page in the siblings collection",
 		"scope": "php"
 	},
 	"$page->hasPrevUnlisted()": {
 		"prefix": "->hasPrevUnlisted()",
-		"body": "->hasPrevUnlisted()",
+		"body": "->hasPrevUnlisted(${1:\\$collection = null})",
 		"description": "Checks if there&#039;s a previous unlisted page in the siblings collection",
+		"scope": "php"
+	},
+	"$page->hasPrevVisible()": {
+		"prefix": "->hasPrevVisible()",
+		"body": "->hasPrevVisible()",
+		"description": "",
 		"scope": "php"
 	},
 	"$page->hasTemplate()": {
@@ -1953,6 +2631,12 @@
 		"prefix": "->hasVideos()",
 		"body": "->hasVideos()",
 		"description": "Checks if the Files collection has any videos",
+		"scope": "php"
+	},
+	"$page->hasVisibleChildren()": {
+		"prefix": "->hasVisibleChildren()",
+		"body": "->hasVisibleChildren()",
+		"description": "",
 		"scope": "php"
 	},
 	"$page->id()": {
@@ -1987,8 +2671,8 @@
 	},
 	"$page->indexOf()": {
 		"prefix": "->indexOf()",
-		"body": "->indexOf()",
-		"description": "Returns the position / index in the collection",
+		"body": "->indexOf(${1:\\$collection = null})",
+		"description": "Returns the position \/ index in the collection",
 		"scope": "php"
 	},
 	"$page->intendedTemplate()": {
@@ -2059,7 +2743,7 @@
 	},
 	"$page->isFirst()": {
 		"prefix": "->isFirst()",
-		"body": "->isFirst()",
+		"body": "->isFirst(${1:\\$collection = null})",
 		"description": "Checks if the item is the first in the collection",
 		"scope": "php"
 	},
@@ -2075,9 +2759,15 @@
 		"description": "Checks if the page is the home page",
 		"scope": "php"
 	},
+	"$page->isInvisible()": {
+		"prefix": "->isInvisible()",
+		"body": "->isInvisible()",
+		"description": "",
+		"scope": "php"
+	},
 	"$page->isLast()": {
 		"prefix": "->isLast()",
-		"body": "->isLast()",
+		"body": "->isLast(${1:\\$collection = null})",
 		"description": "Checks if the item is the last in the collection",
 		"scope": "php"
 	},
@@ -2087,9 +2777,15 @@
 		"description": "Checks if the page has a sorting number",
 		"scope": "php"
 	},
+	"$page->isLocked()": {
+		"prefix": "->isLocked()",
+		"body": "->isLocked()",
+		"description": "Checks if the model is locked for the current user",
+		"scope": "php"
+	},
 	"$page->isNth()": {
 		"prefix": "->isNth()",
-		"body": "->isNth(${1:\\$n})",
+		"body": "->isNth(${1:\\$n}, ${2:\\$collection = null})",
 		"description": "Checks if the item is at a certain position",
 		"scope": "php"
 	},
@@ -2097,6 +2793,12 @@
 		"prefix": "->isOpen()",
 		"body": "->isOpen()",
 		"description": "Checks if the page is open.",
+		"scope": "php"
+	},
+	"$page->isPublished()": {
+		"prefix": "->isPublished()",
+		"body": "->isPublished()",
+		"description": "Checks if the page is not a draft.",
 		"scope": "php"
 	},
 	"$page->isReadable()": {
@@ -2129,40 +2831,76 @@
 		"description": "Checks if the page access is verified.",
 		"scope": "php"
 	},
+	"$page->isVisible()": {
+		"prefix": "->isVisible()",
+		"body": "->isVisible()",
+		"description": "",
+		"scope": "php"
+	},
 	"$page->kirby()": {
 		"prefix": "->kirby()",
 		"body": "->kirby()",
 		"description": "Returns the parent Kirby instance",
 		"scope": "php"
 	},
+	"$page->lock()": {
+		"prefix": "->lock()",
+		"body": "->lock()",
+		"description": "Returns the lock object for this model",
+		"scope": "php"
+	},
+	"$page->mediaRoot()": {
+		"prefix": "->mediaRoot()",
+		"body": "->mediaRoot()",
+		"description": "Returns the root to the media folder for the page",
+		"scope": "php"
+	},
+	"$page->mediaUrl()": {
+		"prefix": "->mediaUrl()",
+		"body": "->mediaUrl()",
+		"description": "The page&#039;s base URL for any files",
+		"scope": "php"
+	},
 	"$page->modified()": {
 		"prefix": "->modified()",
-		"body": "->modified(${1:\\$format = 'U'}, ${2:\\$handler = null})",
+		"body": "->modified(${1:\\$format = null}, ${2:\\$handler = null}, ${3:\\$languageCode = null})",
 		"description": "Returns the last modification date of the page",
 		"scope": "php"
 	},
 	"$page->next()": {
 		"prefix": "->next()",
-		"body": "->next()",
+		"body": "->next(${1:\\$collection = null})",
 		"description": "Returns the next item in the collection if available",
 		"scope": "php"
 	},
 	"$page->nextAll()": {
 		"prefix": "->nextAll()",
-		"body": "->nextAll()",
+		"body": "->nextAll(${1:\\$collection = null})",
 		"description": "Returns the end of the collection starting after the current item",
+		"scope": "php"
+	},
+	"$page->nextInvisible()": {
+		"prefix": "->nextInvisible()",
+		"body": "->nextInvisible()",
+		"description": "",
 		"scope": "php"
 	},
 	"$page->nextListed()": {
 		"prefix": "->nextListed()",
-		"body": "->nextListed()",
+		"body": "->nextListed(${1:\\$collection = null})",
 		"description": "Returns the next listed page if it exists",
 		"scope": "php"
 	},
 	"$page->nextUnlisted()": {
 		"prefix": "->nextUnlisted()",
-		"body": "->nextUnlisted()",
+		"body": "->nextUnlisted(${1:\\$collection = null})",
 		"description": "Returns the next unlisted page if it exists",
+		"scope": "php"
+	},
+	"$page->nextVisible()": {
+		"prefix": "->nextVisible()",
+		"body": "->nextVisible()",
+		"description": "",
 		"scope": "php"
 	},
 	"$page->num()": {
@@ -2171,10 +2909,64 @@
 		"description": "Returns the sorting number",
 		"scope": "php"
 	},
+	"$page->panelIcon()": {
+		"prefix": "->panelIcon()",
+		"body": "->panelIcon(${1:\\$params = null})",
+		"description": "Returns the panel icon definition according to the blueprint settings",
+		"scope": "php"
+	},
+	"$page->panelId()": {
+		"prefix": "->panelId()",
+		"body": "->panelId()",
+		"description": "Returns the escaped Id, which is used in the panel to make routing work properly",
+		"scope": "php"
+	},
+	"$page->panelImage()": {
+		"prefix": "->panelImage()",
+		"body": "->panelImage(${1:\\$settings = null})",
+		"description": "",
+		"scope": "php"
+	},
+	"$page->panelOptions()": {
+		"prefix": "->panelOptions()",
+		"body": "->panelOptions(${1:\\$unlock = [ ]})",
+		"description": "Returns an array of all actions that can be performed in the Panel This also checks for the lock status",
+		"scope": "php"
+	},
+	"$page->panelPath()": {
+		"prefix": "->panelPath()",
+		"body": "->panelPath()",
+		"description": "Returns the full path without leading slash",
+		"scope": "php"
+	},
+	"$page->panelPickerData()": {
+		"prefix": "->panelPickerData()",
+		"body": "->panelPickerData(${1:\\$params = [ ]})",
+		"description": "Prepares the response data for page pickers and page fields",
+		"scope": "php"
+	},
+	"$page->panelUrl()": {
+		"prefix": "->panelUrl()",
+		"body": "->panelUrl(${1:\\$relative = false})",
+		"description": "Returns the url to the editing view in the panel",
+		"scope": "php"
+	},
 	"$page->parent()": {
 		"prefix": "->parent()",
 		"body": "->parent()",
 		"description": "Returns the parent Page object",
+		"scope": "php"
+	},
+	"$page->parentId()": {
+		"prefix": "->parentId()",
+		"body": "->parentId()",
+		"description": "Returns the parent id, if a parent exists",
+		"scope": "php"
+	},
+	"$page->parentModel()": {
+		"prefix": "->parentModel()",
+		"body": "->parentModel()",
+		"description": "Returns the parent model, which can either be another Page or the Site",
 		"scope": "php"
 	},
 	"$page->parents()": {
@@ -2191,26 +2983,44 @@
 	},
 	"$page->prev()": {
 		"prefix": "->prev()",
-		"body": "->prev()",
+		"body": "->prev(${1:\\$collection = null})",
 		"description": "Returns the previous item in the collection if available",
 		"scope": "php"
 	},
 	"$page->prevAll()": {
 		"prefix": "->prevAll()",
-		"body": "->prevAll()",
+		"body": "->prevAll(${1:\\$collection = null})",
 		"description": "Returns the beginning of the collection before the current item",
+		"scope": "php"
+	},
+	"$page->prevInvisible()": {
+		"prefix": "->prevInvisible()",
+		"body": "->prevInvisible()",
+		"description": "",
 		"scope": "php"
 	},
 	"$page->prevListed()": {
 		"prefix": "->prevListed()",
-		"body": "->prevListed()",
+		"body": "->prevListed(${1:\\$collection = null})",
 		"description": "Returns the previous listed page",
 		"scope": "php"
 	},
 	"$page->prevUnlisted()": {
 		"prefix": "->prevUnlisted()",
-		"body": "->prevUnlisted()",
+		"body": "->prevUnlisted(${1:\\$collection = null})",
 		"description": "Returns the previous unlisted page",
+		"scope": "php"
+	},
+	"$page->prevVisible()": {
+		"prefix": "->prevVisible()",
+		"body": "->prevVisible()",
+		"description": "",
+		"scope": "php"
+	},
+	"$page->previewUrl()": {
+		"prefix": "->previewUrl()",
+		"body": "->previewUrl()",
+		"description": "Draft preview Url",
 		"scope": "php"
 	},
 	"$page->publish()": {
@@ -2225,6 +3035,12 @@
 		"description": "Clean internal caches",
 		"scope": "php"
 	},
+	"$page->query()": {
+		"prefix": "->query()",
+		"body": "->query(${1:\\$query = null}, ${2:\\$expect = null})",
+		"description": "Creates a string query, starting from the model",
+		"scope": "php"
+	},
 	"$page->readContent()": {
 		"prefix": "->readContent()",
 		"body": "->readContent(${1:\\$languageCode = null})",
@@ -2235,6 +3051,12 @@
 		"prefix": "->render()",
 		"body": "->render(${1:\\$data = [ ]}, ${2:\\$contentType = 'html'})",
 		"description": "Renders the page with the given data.",
+		"scope": "php"
+	},
+	"$page->representation()": {
+		"prefix": "->representation()",
+		"body": "->representation(${1:\\$type})",
+		"description": "",
 		"scope": "php"
 	},
 	"$page->resortSiblingsAfterUnlisting()": {
@@ -2259,6 +3081,12 @@
 		"prefix": "->search()",
 		"body": "->search(${1:\\$query = null}, ${2:\\$params = [ ]})",
 		"description": "Search all pages within the current page",
+		"scope": "php"
+	},
+	"$page->setSite()": {
+		"prefix": "->setSite()",
+		"body": "->setSite(${1:\\$site = null})",
+		"description": "Setter for the parent site object",
 		"scope": "php"
 	},
 	"$page->siblings()": {
@@ -2317,7 +3145,7 @@
 	},
 	"$page->toString()": {
 		"prefix": "->toString()",
-		"body": "->toString(${1:\\$template = null})",
+		"body": "->toString(${1:\\$template = null}, ${2:\\$data = [ ]}, ${3:\\$fallback = ''})",
 		"description": "String template builder",
 		"scope": "php"
 	},
@@ -2399,10 +3227,22 @@
 		"description": "Returns all audio files of all children",
 		"scope": "php"
 	},
+	"$pages->callMethod()": {
+		"prefix": "->callMethod()",
+		"body": "->callMethod(${1:\\$method}, ${2:\\$args = [ ]})",
+		"description": "Calls a registered method class with the passed arguments",
+		"scope": "php"
+	},
 	"$pages->children()": {
 		"prefix": "->children()",
 		"body": "->children()",
 		"description": "Returns all children for each page in the array",
+		"scope": "php"
+	},
+	"$pages->chunk()": {
+		"prefix": "->chunk()",
+		"body": "->chunk(${1:\\$size})",
+		"description": "Creates chunks of the same size.",
 		"scope": "php"
 	},
 	"$pages->clone()": {
@@ -2447,10 +3287,16 @@
 		"description": "Fetch all drafts for all pages in the collection",
 		"scope": "php"
 	},
-	"Pages::factory()": {
-		"prefix": "->factory()",
-		"body": "->factory(${1:\\$pages}, ${2:\\$model = null}, ${3:\\$draft = false})",
-		"description": "Creates a pages collection from an array of props",
+	"$pages->empty()": {
+		"prefix": "->empty()",
+		"body": "->empty()",
+		"description": "Clone and remove all elements from the collection",
+		"scope": "php"
+	},
+	"$pages->extend()": {
+		"prefix": "->extend()",
+		"body": "->extend(${1:\\$items})",
+		"description": "Adds all elements to the collection",
 		"scope": "php"
 	},
 	"$pages->files()": {
@@ -2485,7 +3331,7 @@
 	},
 	"$pages->findById()": {
 		"prefix": "->findById()",
-		"body": "->findById(${1:\\$id})",
+		"body": "->findById(${1:\\$id = null})",
 		"description": "Finds a page in the collection by id.",
 		"scope": "php"
 	},
@@ -2497,7 +3343,7 @@
 	},
 	"$pages->findByKey()": {
 		"prefix": "->findByKey()",
-		"body": "->findByKey(${1:\\$key})",
+		"body": "->findByKey(${1:\\$key = null})",
 		"description": "Uses the specialized find by id method",
 		"scope": "php"
 	},
@@ -2531,6 +3377,18 @@
 		"description": "Custom getter that is able to find extension pages",
 		"scope": "php"
 	},
+	"$pages->getAttribute()": {
+		"prefix": "->getAttribute()",
+		"body": "->getAttribute(${1:\\$item}, ${2:\\$attribute}, ${3:\\$split = false}, ${4:\\$related = null})",
+		"description": "Extracts an attribute value from the given element in the collection. This is useful if elements in the collection might be objects, arrays or anything else and you need to get the value independently from that. We use it for filterBy.",
+		"scope": "php"
+	},
+	"$pages->getIterator()": {
+		"prefix": "->getIterator()",
+		"body": "->getIterator()",
+		"description": "Get an iterator for the items.",
+		"scope": "php"
+	},
 	"$pages->group()": {
 		"prefix": "->group()",
 		"body": "->group(${1:\\$callback})",
@@ -2540,13 +3398,19 @@
 	"$pages->groupBy()": {
 		"prefix": "->groupBy()",
 		"body": "->groupBy(${1:\\$field}, ${2:\\$i = true})",
-		"description": "Groups the items by a given field",
+		"description": "Groups the items by a given field. Returns a collection with an item for each group and a collection for each group.",
 		"scope": "php"
 	},
 	"$pages->has()": {
 		"prefix": "->has()",
 		"body": "->has(${1:\\$id})",
 		"description": "Checks if the given object or id is in the collection",
+		"scope": "php"
+	},
+	"$pages->hasMethod()": {
+		"prefix": "->hasMethod()",
+		"body": "->hasMethod(${1:\\$method})",
+		"description": "Checks if the object has a registered method",
 		"scope": "php"
 	},
 	"$pages->images()": {
@@ -2567,10 +3431,22 @@
 		"description": "Correct position detection for objects.",
 		"scope": "php"
 	},
+	"$pages->intersection()": {
+		"prefix": "->intersection()",
+		"body": "->intersection(${1:\\$other})",
+		"description": "Returns a Collection with the intersection of the given elements",
+		"scope": "php"
+	},
+	"$pages->intersects()": {
+		"prefix": "->intersects()",
+		"body": "->intersects(${1:\\$other})",
+		"description": "Checks if there is an intersection between the given collection and this collection",
+		"scope": "php"
+	},
 	"$pages->invisible()": {
 		"prefix": "->invisible()",
 		"body": "->invisible()",
-		"description": "Deprecated alias for Pages::unlisted()",
+		"description": "",
 		"scope": "php"
 	},
 	"$pages->isEmpty()": {
@@ -2588,7 +3464,7 @@
 	"$pages->isNotEmpty()": {
 		"prefix": "->isNotEmpty()",
 		"body": "->isNotEmpty()",
-		"description": "CChecks if the number of elements is more than zero",
+		"description": "Checks if the number of elements is more than zero",
 		"scope": "php"
 	},
 	"$pages->isOdd()": {
@@ -2657,6 +3533,12 @@
 		"description": "Returns a Collection without the given element(s)",
 		"scope": "php"
 	},
+	"$pages->notTemplate()": {
+		"prefix": "->notTemplate()",
+		"body": "->notTemplate(${1:\\$templates})",
+		"description": "Filter all pages by excluding the given template",
+		"scope": "php"
+	},
 	"$pages->nth()": {
 		"prefix": "->nth()",
 		"body": "->nth(${1:\\$n})",
@@ -2678,7 +3560,7 @@
 	"$pages->paginate()": {
 		"prefix": "->paginate()",
 		"body": "->paginate(${1:\\$arguments = null})",
-		"description": "Add pagination",
+		"description": "Add pagination and return a sliced set of data.",
 		"scope": "php"
 	},
 	"$pages->pagination()": {
@@ -2719,8 +3601,8 @@
 	},
 	"$pages->query()": {
 		"prefix": "->query()",
-		"body": "->query(${1:\\$arguments = [ ]})",
-		"description": "Runs a combination of filterBy, sortBy, not offset, limit and paginate on the collection.",
+		"body": "->query(${1:\\$query = [ ]})",
+		"description": "Runs a combination of filterBy, sortBy, not offset, limit, search and paginate on the collection.",
 		"scope": "php"
 	},
 	"$pages->remove()": {
@@ -2801,6 +3683,12 @@
 		"description": "Checks if the current element is valid",
 		"scope": "php"
 	},
+	"$pages->values()": {
+		"prefix": "->values()",
+		"body": "->values()",
+		"description": "Returns an non-associative array with all values",
+		"scope": "php"
+	},
 	"$pages->videos()": {
 		"prefix": "->videos()",
 		"body": "->videos()",
@@ -2810,13 +3698,25 @@
 	"$pages->visible()": {
 		"prefix": "->visible()",
 		"body": "->visible()",
-		"description": "Deprecated alias for Pages::listed()",
+		"description": "",
+		"scope": "php"
+	},
+	"$pages->when()": {
+		"prefix": "->when()",
+		"body": "->when(${1:\\$condition}, ${2:\\$callback}, ${3:\\$fallback = null})",
+		"description": "The when method only executes the given Closure when the first parameter is true. If the first parameter is false, the Closure will not be executed.",
 		"scope": "php"
 	},
 	"$pages->without()": {
 		"prefix": "->without()",
 		"body": "->without(${1:\\$keys = null})",
 		"description": "Alias for $this-&gt;not()",
+		"scope": "php"
+	},
+	"$pagination->clone()": {
+		"prefix": "->clone()",
+		"body": "->clone(${1:\\$props = [ ]})",
+		"description": "Creates an instance with the same initial properties.",
 		"scope": "php"
 	},
 	"$pagination->end()": {
@@ -2837,10 +3737,10 @@
 		"description": "Returns the Url for the first page",
 		"scope": "php"
 	},
-	"Pagination::for()": {
-		"prefix": "->for()",
-		"body": "->for(${1:\\$collection}, ${2:\\$arguments = null})",
-		"description": "",
+	"$pagination->hardcopy()": {
+		"prefix": "->hardcopy()",
+		"body": "->hardcopy()",
+		"description": "Creates a clone and fetches all lazy-loaded getters to get a full copy",
 		"scope": "php"
 	},
 	"$pagination->hasNextPage()": {
@@ -2894,7 +3794,7 @@
 	"$pagination->limit()": {
 		"prefix": "->limit()",
 		"body": "->limit(${1:\\$limit = null})",
-		"description": "Getter and setter for the number of items per page",
+		"description": "Getter for the number of items per page",
 		"scope": "php"
 	},
 	"$pagination->nextPage()": {
@@ -2918,13 +3818,13 @@
 	"$pagination->page()": {
 		"prefix": "->page()",
 		"body": "->page(${1:\\$page = null})",
-		"description": "Getter and setter for the current page",
+		"description": "Getter for the current page",
 		"scope": "php"
 	},
 	"$pagination->pageUrl()": {
 		"prefix": "->pageUrl()",
 		"body": "->pageUrl(${1:\\$page = null})",
-		"description": "Returns the Url of the current page.",
+		"description": "Returns the URL of the current page.",
 		"scope": "php"
 	},
 	"$pagination->pages()": {
@@ -2978,13 +3878,7 @@
 	"$pagination->total()": {
 		"prefix": "->total()",
 		"body": "->total(${1:\\$total = null})",
-		"description": "Getter and setter for the total number of items",
-		"scope": "php"
-	},
-	"$request->ajax()": {
-		"prefix": "->ajax()",
-		"body": "->ajax()",
-		"description": "Detects ajax requests",
+		"description": "Getter for the total number of items",
 		"scope": "php"
 	},
 	"$request->auth()": {
@@ -3015,6 +3909,18 @@
 		"prefix": "->data()",
 		"body": "->data()",
 		"description": "Returns the request input as array",
+		"scope": "php"
+	},
+	"$request->detectRequestMethod()": {
+		"prefix": "->detectRequestMethod()",
+		"body": "->detectRequestMethod(${1:\\$method = null})",
+		"description": "Detect the request method from various options: given method, query string, server vars",
+		"scope": "php"
+	},
+	"$request->domain()": {
+		"prefix": "->domain()",
+		"body": "->domain()",
+		"description": "Returns the domain",
 		"scope": "php"
 	},
 	"$request->file()": {
@@ -3063,6 +3969,12 @@
 		"prefix": "->params()",
 		"body": "->params()",
 		"description": "Shortcut to the Params object",
+		"scope": "php"
+	},
+	"$request->path()": {
+		"prefix": "->path()",
+		"body": "->path()",
+		"description": "Shortcut to the Path object",
 		"scope": "php"
 	},
 	"$request->query()": {
@@ -3131,6 +4043,12 @@
 		"description": "Sets one or multiple session values by key",
 		"scope": "php"
 	},
+	"$site->apiUrl()": {
+		"prefix": "->apiUrl()",
+		"body": "->apiUrl(${1:\\$relative = false})",
+		"description": "Returns the url to the api endpoint",
+		"scope": "php"
+	},
 	"$site->audio()": {
 		"prefix": "->audio()",
 		"body": "->audio()",
@@ -3153,6 +4071,12 @@
 		"prefix": "->breadcrumb()",
 		"body": "->breadcrumb()",
 		"description": "Builds a breadcrumb collection",
+		"scope": "php"
+	},
+	"$site->callMethod()": {
+		"prefix": "->callMethod()",
+		"body": "->callMethod(${1:\\$method}, ${2:\\$args = [ ]})",
+		"description": "Calls a registered method class with the passed arguments",
 		"scope": "php"
 	},
 	"$site->changeTitle()": {
@@ -3189,6 +4113,42 @@
 		"prefix": "->content()",
 		"body": "->content(${1:\\$languageCode = null})",
 		"description": "Returns the content",
+		"scope": "php"
+	},
+	"$site->contentFile()": {
+		"prefix": "->contentFile()",
+		"body": "->contentFile(${1:\\$languageCode = null}, ${2:\\$force = false})",
+		"description": "Returns the absolute path to the content file",
+		"scope": "php"
+	},
+	"$site->contentFileData()": {
+		"prefix": "->contentFileData()",
+		"body": "->contentFileData(${1:\\$data}, ${2:\\$languageCode = null})",
+		"description": "Prepares the content for the write method",
+		"scope": "php"
+	},
+	"$site->contentFileDirectory()": {
+		"prefix": "->contentFileDirectory()",
+		"body": "->contentFileDirectory()",
+		"description": "Returns the absolute path to the folder in which the content file is located",
+		"scope": "php"
+	},
+	"$site->contentFileExtension()": {
+		"prefix": "->contentFileExtension()",
+		"body": "->contentFileExtension()",
+		"description": "Returns the extension of the content file",
+		"scope": "php"
+	},
+	"$site->contentFileName()": {
+		"prefix": "->contentFileName()",
+		"body": "->contentFileName()",
+		"description": "Filename for the content file",
+		"scope": "php"
+	},
+	"$site->contentFiles()": {
+		"prefix": "->contentFiles()",
+		"body": "->contentFiles()",
+		"description": "Returns an array with all content files",
 		"scope": "php"
 	},
 	"$site->createChild()": {
@@ -3231,6 +4191,12 @@
 		"prefix": "->errorPage()",
 		"body": "->errorPage()",
 		"description": "Returns the error page object",
+		"scope": "php"
+	},
+	"$site->errorPageId()": {
+		"prefix": "->errorPageId()",
+		"body": "->errorPageId()",
+		"description": "Returns the global error page id",
 		"scope": "php"
 	},
 	"$site->errors()": {
@@ -3323,10 +4289,22 @@
 		"description": "Checks if the Files collection has any images",
 		"scope": "php"
 	},
+	"$site->hasInvisibleChildren()": {
+		"prefix": "->hasInvisibleChildren()",
+		"body": "->hasInvisibleChildren()",
+		"description": "",
+		"scope": "php"
+	},
 	"$site->hasListedChildren()": {
 		"prefix": "->hasListedChildren()",
 		"body": "->hasListedChildren()",
 		"description": "Checks if the page has any listed children",
+		"scope": "php"
+	},
+	"$site->hasMethod()": {
+		"prefix": "->hasMethod()",
+		"body": "->hasMethod(${1:\\$method})",
+		"description": "Checks if the object has a registered method",
 		"scope": "php"
 	},
 	"$site->hasUnlistedChildren()": {
@@ -3341,10 +4319,22 @@
 		"description": "Checks if the Files collection has any videos",
 		"scope": "php"
 	},
+	"$site->hasVisibleChildren()": {
+		"prefix": "->hasVisibleChildren()",
+		"body": "->hasVisibleChildren()",
+		"description": "",
+		"scope": "php"
+	},
 	"$site->homePage()": {
 		"prefix": "->homePage()",
 		"body": "->homePage()",
 		"description": "Returns the home page object",
+		"scope": "php"
+	},
+	"$site->homePageId()": {
+		"prefix": "->homePageId()",
+		"body": "->homePageId()",
+		"description": "Returns the global home page id",
 		"scope": "php"
 	},
 	"$site->id()": {
@@ -3383,6 +4373,18 @@
 		"description": "Creates an inventory of all files and children in the site directory",
 		"scope": "php"
 	},
+	"$site->is()": {
+		"prefix": "->is()",
+		"body": "->is(${1:\\$site})",
+		"description": "Compares the current object with the given site object",
+		"scope": "php"
+	},
+	"$site->isLocked()": {
+		"prefix": "->isLocked()",
+		"body": "->isLocked()",
+		"description": "Checks if the model is locked for the current user",
+		"scope": "php"
+	},
 	"$site->isValid()": {
 		"prefix": "->isValid()",
 		"body": "->isValid()",
@@ -3393,6 +4395,24 @@
 		"prefix": "->kirby()",
 		"body": "->kirby()",
 		"description": "Returns the parent Kirby instance",
+		"scope": "php"
+	},
+	"$site->lock()": {
+		"prefix": "->lock()",
+		"body": "->lock()",
+		"description": "Returns the lock object for this model",
+		"scope": "php"
+	},
+	"$site->mediaRoot()": {
+		"prefix": "->mediaRoot()",
+		"body": "->mediaRoot()",
+		"description": "Returns the root to the media folder for the site",
+		"scope": "php"
+	},
+	"$site->mediaUrl()": {
+		"prefix": "->mediaUrl()",
+		"body": "->mediaUrl()",
+		"description": "The site&#039;s base url for any files",
 		"scope": "php"
 	},
 	"$site->modified()": {
@@ -3413,16 +4433,58 @@
 		"description": "Alias for `Site::children()`",
 		"scope": "php"
 	},
+	"$site->panelIcon()": {
+		"prefix": "->panelIcon()",
+		"body": "->panelIcon(${1:\\$params = null})",
+		"description": "Returns the panel icon definition",
+		"scope": "php"
+	},
+	"$site->panelImage()": {
+		"prefix": "->panelImage()",
+		"body": "->panelImage(${1:\\$settings = null})",
+		"description": "",
+		"scope": "php"
+	},
+	"$site->panelOptions()": {
+		"prefix": "->panelOptions()",
+		"body": "->panelOptions(${1:\\$unlock = [ ]})",
+		"description": "Returns an array of all actions that can be performed in the Panel This also checks for the lock status",
+		"scope": "php"
+	},
+	"$site->panelPath()": {
+		"prefix": "->panelPath()",
+		"body": "->panelPath()",
+		"description": "Returns the full path without leading slash",
+		"scope": "php"
+	},
+	"$site->panelUrl()": {
+		"prefix": "->panelUrl()",
+		"body": "->panelUrl(${1:\\$relative = false})",
+		"description": "Returns the url to the editing view in the panel",
+		"scope": "php"
+	},
 	"$site->permissions()": {
 		"prefix": "->permissions()",
 		"body": "->permissions()",
 		"description": "Returns the permissions object for this site",
 		"scope": "php"
 	},
+	"$site->previewUrl()": {
+		"prefix": "->previewUrl()",
+		"body": "->previewUrl()",
+		"description": "Preview Url",
+		"scope": "php"
+	},
 	"$site->purge()": {
 		"prefix": "->purge()",
 		"body": "->purge()",
 		"description": "Clean internal caches",
+		"scope": "php"
+	},
+	"$site->query()": {
+		"prefix": "->query()",
+		"body": "->query(${1:\\$query = null}, ${2:\\$expect = null})",
+		"description": "Creates a string query, starting from the model",
 		"scope": "php"
 	},
 	"$site->readContent()": {
@@ -3455,6 +4517,12 @@
 		"description": "Sets the current page object",
 		"scope": "php"
 	},
+	"$site->setSite()": {
+		"prefix": "->setSite()",
+		"body": "->setSite(${1:\\$site = null})",
+		"description": "Setter for the parent site object",
+		"scope": "php"
+	},
 	"$site->site()": {
 		"prefix": "->site()",
 		"body": "->site()",
@@ -3469,7 +4537,7 @@
 	},
 	"$site->toString()": {
 		"prefix": "->toString()",
-		"body": "->toString(${1:\\$template = null})",
+		"body": "->toString(${1:\\$template = null}, ${2:\\$data = [ ]}, ${3:\\$fallback = ''})",
 		"description": "String template builder",
 		"scope": "php"
 	},
@@ -3527,6 +4595,12 @@
 		"description": "Low level data writer method to store the given data on disk or anywhere else",
 		"scope": "php"
 	},
+	"$user->apiUrl()": {
+		"prefix": "->apiUrl()",
+		"body": "->apiUrl(${1:\\$relative = false})",
+		"description": "Returns the url to the api endpoint",
+		"scope": "php"
+	},
 	"$user->audio()": {
 		"prefix": "->audio()",
 		"body": "->audio()",
@@ -3543,6 +4617,12 @@
 		"prefix": "->blueprint()",
 		"body": "->blueprint()",
 		"description": "Returns the UserBlueprint object",
+		"scope": "php"
+	},
+	"$user->callMethod()": {
+		"prefix": "->callMethod()",
+		"body": "->callMethod(${1:\\$method}, ${2:\\$args = [ ]})",
+		"description": "Calls a registered method class with the passed arguments",
 		"scope": "php"
 	},
 	"$user->changeEmail()": {
@@ -3593,10 +4673,40 @@
 		"description": "Returns the content",
 		"scope": "php"
 	},
-	"User::create()": {
-		"prefix": "->create()",
-		"body": "->create(${1:\\$props = null})",
-		"description": "Creates a new User from the given props and returns a new User object",
+	"$user->contentFile()": {
+		"prefix": "->contentFile()",
+		"body": "->contentFile(${1:\\$languageCode = null}, ${2:\\$force = false})",
+		"description": "Returns the absolute path to the content file",
+		"scope": "php"
+	},
+	"$user->contentFileData()": {
+		"prefix": "->contentFileData()",
+		"body": "->contentFileData(${1:\\$data}, ${2:\\$languageCode = null})",
+		"description": "Prepares the content for the write method",
+		"scope": "php"
+	},
+	"$user->contentFileDirectory()": {
+		"prefix": "->contentFileDirectory()",
+		"body": "->contentFileDirectory()",
+		"description": "Returns the absolute path to the folder in which the content file is located",
+		"scope": "php"
+	},
+	"$user->contentFileExtension()": {
+		"prefix": "->contentFileExtension()",
+		"body": "->contentFileExtension()",
+		"description": "Returns the extension of the content file",
+		"scope": "php"
+	},
+	"$user->contentFileName()": {
+		"prefix": "->contentFileName()",
+		"body": "->contentFileName()",
+		"description": "Filename for the content file",
+		"scope": "php"
+	},
+	"$user->contentFiles()": {
+		"prefix": "->contentFiles()",
+		"body": "->contentFiles()",
+		"description": "Returns an array with all content files",
 		"scope": "php"
 	},
 	"$user->createFile()": {
@@ -3695,15 +4805,21 @@
 		"description": "Checks if the Files collection has any images",
 		"scope": "php"
 	},
+	"$user->hasMethod()": {
+		"prefix": "->hasMethod()",
+		"body": "->hasMethod(${1:\\$method})",
+		"description": "Checks if the object has a registered method",
+		"scope": "php"
+	},
 	"$user->hasNext()": {
 		"prefix": "->hasNext()",
-		"body": "->hasNext()",
+		"body": "->hasNext(${1:\\$collection = null})",
 		"description": "Checks if there&#039;s a next item in the collection",
 		"scope": "php"
 	},
 	"$user->hasPrev()": {
 		"prefix": "->hasPrev()",
-		"body": "->hasPrev()",
+		"body": "->hasPrev(${1:\\$collection = null})",
 		"description": "Checks if there&#039;s a previous item in the collection",
 		"scope": "php"
 	},
@@ -3739,8 +4855,8 @@
 	},
 	"$user->indexOf()": {
 		"prefix": "->indexOf()",
-		"body": "->indexOf()",
-		"description": "Returns the position / index in the collection",
+		"body": "->indexOf(${1:\\$collection = null})",
+		"description": "Returns the position \/ index in the collection",
 		"scope": "php"
 	},
 	"$user->inventory()": {
@@ -3751,7 +4867,7 @@
 	},
 	"$user->is()": {
 		"prefix": "->is()",
-		"body": "->is(${1:\\$user})",
+		"body": "->is(${1:\\$user = null})",
 		"description": "Compares the current object with the given user object",
 		"scope": "php"
 	},
@@ -3763,7 +4879,7 @@
 	},
 	"$user->isFirst()": {
 		"prefix": "->isFirst()",
-		"body": "->isFirst()",
+		"body": "->isFirst(${1:\\$collection = null})",
 		"description": "Checks if the item is the first in the collection",
 		"scope": "php"
 	},
@@ -3775,7 +4891,7 @@
 	},
 	"$user->isLast()": {
 		"prefix": "->isLast()",
-		"body": "->isLast()",
+		"body": "->isLast(${1:\\$collection = null})",
 		"description": "Checks if the item is the last in the collection",
 		"scope": "php"
 	},
@@ -3791,6 +4907,12 @@
 		"description": "Checks if the user is the last user",
 		"scope": "php"
 	},
+	"$user->isLocked()": {
+		"prefix": "->isLocked()",
+		"body": "->isLocked()",
+		"description": "Checks if the model is locked for the current user",
+		"scope": "php"
+	},
 	"$user->isLoggedIn()": {
 		"prefix": "->isLoggedIn()",
 		"body": "->isLoggedIn()",
@@ -3799,7 +4921,7 @@
 	},
 	"$user->isNth()": {
 		"prefix": "->isNth()",
-		"body": "->isNth(${1:\\$n})",
+		"body": "->isNth(${1:\\$n}, ${2:\\$collection = null})",
 		"description": "Checks if the item is at a certain position",
 		"scope": "php"
 	},
@@ -3821,6 +4943,12 @@
 		"description": "Returns the user language",
 		"scope": "php"
 	},
+	"$user->lock()": {
+		"prefix": "->lock()",
+		"body": "->lock()",
+		"description": "Returns the lock object for this model",
+		"scope": "php"
+	},
 	"$user->login()": {
 		"prefix": "->login()",
 		"body": "->login(${1:\\$password}, ${2:\\$session = null})",
@@ -3839,9 +4967,21 @@
 		"description": "Logs the user out",
 		"scope": "php"
 	},
+	"$user->mediaRoot()": {
+		"prefix": "->mediaRoot()",
+		"body": "->mediaRoot()",
+		"description": "Returns the root to the media folder for the user",
+		"scope": "php"
+	},
+	"$user->mediaUrl()": {
+		"prefix": "->mediaUrl()",
+		"body": "->mediaUrl()",
+		"description": "Returns the media url for the user object",
+		"scope": "php"
+	},
 	"$user->modified()": {
 		"prefix": "->modified()",
-		"body": "->modified(${1:\\$format = 'U'}, ${2:\\$handler = null})",
+		"body": "->modified(${1:\\$format = 'U'}, ${2:\\$handler = null}, ${3:\\$languageCode = null})",
 		"description": "Returns the last modification date of the user",
 		"scope": "php"
 	},
@@ -3853,14 +4993,50 @@
 	},
 	"$user->next()": {
 		"prefix": "->next()",
-		"body": "->next()",
+		"body": "->next(${1:\\$collection = null})",
 		"description": "Returns the next item in the collection if available",
 		"scope": "php"
 	},
 	"$user->nextAll()": {
 		"prefix": "->nextAll()",
-		"body": "->nextAll()",
+		"body": "->nextAll(${1:\\$collection = null})",
 		"description": "Returns the end of the collection starting after the current item",
+		"scope": "php"
+	},
+	"$user->panelIcon()": {
+		"prefix": "->panelIcon()",
+		"body": "->panelIcon(${1:\\$params = null})",
+		"description": "Panel icon definition",
+		"scope": "php"
+	},
+	"$user->panelImage()": {
+		"prefix": "->panelImage()",
+		"body": "->panelImage(${1:\\$settings = null})",
+		"description": "",
+		"scope": "php"
+	},
+	"$user->panelOptions()": {
+		"prefix": "->panelOptions()",
+		"body": "->panelOptions(${1:\\$unlock = [ ]})",
+		"description": "Returns an array of all actions that can be performed in the Panel This also checks for the lock status",
+		"scope": "php"
+	},
+	"$user->panelPath()": {
+		"prefix": "->panelPath()",
+		"body": "->panelPath()",
+		"description": "Returns the full path without leading slash",
+		"scope": "php"
+	},
+	"$user->panelPickerData()": {
+		"prefix": "->panelPickerData()",
+		"body": "->panelPickerData(${1:\\$params = null})",
+		"description": "Returns prepared data for the panel user picker",
+		"scope": "php"
+	},
+	"$user->panelUrl()": {
+		"prefix": "->panelUrl()",
+		"body": "->panelUrl(${1:\\$relative = false})",
+		"description": "Returns the url to the editing view in the panel",
 		"scope": "php"
 	},
 	"$user->password()": {
@@ -3877,14 +5053,20 @@
 	},
 	"$user->prev()": {
 		"prefix": "->prev()",
-		"body": "->prev()",
+		"body": "->prev(${1:\\$collection = null})",
 		"description": "Returns the previous item in the collection if available",
 		"scope": "php"
 	},
 	"$user->prevAll()": {
 		"prefix": "->prevAll()",
-		"body": "->prevAll()",
+		"body": "->prevAll(${1:\\$collection = null})",
 		"description": "Returns the beginning of the collection before the current item",
+		"scope": "php"
+	},
+	"$user->query()": {
+		"prefix": "->query()",
+		"body": "->query(${1:\\$query = null}, ${2:\\$expect = null})",
+		"description": "Creates a string query, starting from the model",
 		"scope": "php"
 	},
 	"$user->readContent()": {
@@ -3899,6 +5081,12 @@
 		"description": "Returns the user role",
 		"scope": "php"
 	},
+	"$user->roles()": {
+		"prefix": "->roles()",
+		"body": "->roles()",
+		"description": "Returns all available roles for this user, that can be selected by the authenticated user",
+		"scope": "php"
+	},
 	"$user->root()": {
 		"prefix": "->root()",
 		"body": "->root()",
@@ -3909,6 +5097,12 @@
 		"prefix": "->save()",
 		"body": "->save(${1:\\$data = null}, ${2:\\$languageCode = null}, ${3:\\$overwrite = false})",
 		"description": "Stores the content on disk",
+		"scope": "php"
+	},
+	"$user->setSite()": {
+		"prefix": "->setSite()",
+		"body": "->setSite(${1:\\$site = null})",
+		"description": "Setter for the parent site object",
 		"scope": "php"
 	},
 	"$user->siblings()": {
@@ -3931,7 +5125,7 @@
 	},
 	"$user->toString()": {
 		"prefix": "->toString()",
-		"body": "->toString(${1:\\$template = null})",
+		"body": "->toString(${1:\\$template = null}, ${2:\\$data = [ ]}, ${3:\\$fallback = ''})",
 		"description": "String template builder",
 		"scope": "php"
 	},
@@ -3949,8 +5143,8 @@
 	},
 	"$user->update()": {
 		"prefix": "->update()",
-		"body": "->update(${1:\\$input = null}, ${2:\\$languageCode = null}, ${3:\\$validate = false})",
-		"description": "Updates the model data",
+		"body": "->update(${1:\\$input = null}, ${2:\\$language = null}, ${3:\\$validate = false})",
+		"description": "Updates the user data",
 		"scope": "php"
 	},
 	"$user->username()": {
@@ -3989,6 +5183,18 @@
 		"description": "Appends an element to the data array",
 		"scope": "php"
 	},
+	"$users->callMethod()": {
+		"prefix": "->callMethod()",
+		"body": "->callMethod(${1:\\$method}, ${2:\\$args = [ ]})",
+		"description": "Calls a registered method class with the passed arguments",
+		"scope": "php"
+	},
+	"$users->chunk()": {
+		"prefix": "->chunk()",
+		"body": "->chunk(${1:\\$size})",
+		"description": "Creates chunks of the same size.",
+		"scope": "php"
+	},
 	"$users->clone()": {
 		"prefix": "->clone()",
 		"body": "->clone()",
@@ -4019,10 +5225,16 @@
 		"description": "Getter and setter for the data",
 		"scope": "php"
 	},
-	"Users::factory()": {
-		"prefix": "->factory()",
-		"body": "->factory(${1:\\$users}, ${2:\\$inject = [ ]})",
-		"description": "Takes an array of user props and creates a nice and clean user collection from it",
+	"$users->empty()": {
+		"prefix": "->empty()",
+		"body": "->empty()",
+		"description": "Clone and remove all elements from the collection",
+		"scope": "php"
+	},
+	"$users->extend()": {
+		"prefix": "->extend()",
+		"body": "->extend(${1:\\$items})",
+		"description": "Adds all elements to the collection",
 		"scope": "php"
 	},
 	"$users->filter()": {
@@ -4067,6 +5279,24 @@
 		"description": "Returns the elements in reverse order",
 		"scope": "php"
 	},
+	"$users->get()": {
+		"prefix": "->get()",
+		"body": "->get(${1:\\$key}, ${2:\\$default = null})",
+		"description": "Getter",
+		"scope": "php"
+	},
+	"$users->getAttribute()": {
+		"prefix": "->getAttribute()",
+		"body": "->getAttribute(${1:\\$item}, ${2:\\$attribute}, ${3:\\$split = false}, ${4:\\$related = null})",
+		"description": "Extracts an attribute value from the given element in the collection. This is useful if elements in the collection might be objects, arrays or anything else and you need to get the value independently from that. We use it for filterBy.",
+		"scope": "php"
+	},
+	"$users->getIterator()": {
+		"prefix": "->getIterator()",
+		"body": "->getIterator()",
+		"description": "Get an iterator for the items.",
+		"scope": "php"
+	},
 	"$users->group()": {
 		"prefix": "->group()",
 		"body": "->group(${1:\\$callback})",
@@ -4076,7 +5306,7 @@
 	"$users->groupBy()": {
 		"prefix": "->groupBy()",
 		"body": "->groupBy(${1:\\$field}, ${2:\\$i = true})",
-		"description": "Groups the items by a given field",
+		"description": "Groups the items by a given field. Returns a collection with an item for each group and a collection for each group.",
 		"scope": "php"
 	},
 	"$users->has()": {
@@ -4085,10 +5315,28 @@
 		"description": "Checks if the given object or id is in the collection",
 		"scope": "php"
 	},
+	"$users->hasMethod()": {
+		"prefix": "->hasMethod()",
+		"body": "->hasMethod(${1:\\$method})",
+		"description": "Checks if the object has a registered method",
+		"scope": "php"
+	},
 	"$users->indexOf()": {
 		"prefix": "->indexOf()",
 		"body": "->indexOf(${1:\\$object})",
 		"description": "Correct position detection for objects.",
+		"scope": "php"
+	},
+	"$users->intersection()": {
+		"prefix": "->intersection()",
+		"body": "->intersection(${1:\\$other})",
+		"description": "Returns a Collection with the intersection of the given elements",
+		"scope": "php"
+	},
+	"$users->intersects()": {
+		"prefix": "->intersects()",
+		"body": "->intersects(${1:\\$other})",
+		"description": "Checks if there is an intersection between the given collection and this collection",
 		"scope": "php"
 	},
 	"$users->isEmpty()": {
@@ -4106,7 +5354,7 @@
 	"$users->isNotEmpty()": {
 		"prefix": "->isNotEmpty()",
 		"body": "->isNotEmpty()",
-		"description": "CChecks if the number of elements is more than zero",
+		"description": "Checks if the number of elements is more than zero",
 		"scope": "php"
 	},
 	"$users->isOdd()": {
@@ -4145,12 +5393,6 @@
 		"description": "Returns a new object with a limited number of elements",
 		"scope": "php"
 	},
-	"Users::load()": {
-		"prefix": "->load()",
-		"body": "->load(${1:\\$root}, ${2:\\$inject = [ ]})",
-		"description": "Loads a user from disk by passing the absolute path (root)",
-		"scope": "php"
-	},
 	"$users->map()": {
 		"prefix": "->map()",
 		"body": "->map(${1:\\$callback})",
@@ -4184,7 +5426,7 @@
 	"$users->paginate()": {
 		"prefix": "->paginate()",
 		"body": "->paginate(${1:\\$arguments = null})",
-		"description": "Add pagination",
+		"description": "Add pagination and return a sliced set of data.",
 		"scope": "php"
 	},
 	"$users->pagination()": {
@@ -4219,8 +5461,8 @@
 	},
 	"$users->query()": {
 		"prefix": "->query()",
-		"body": "->query(${1:\\$arguments = [ ]})",
-		"description": "Runs a combination of filterBy, sortBy, not offset, limit and paginate on the collection.",
+		"body": "->query(${1:\\$query = [ ]})",
+		"description": "Runs a combination of filterBy, sortBy, not offset, limit, search and paginate on the collection.",
 		"scope": "php"
 	},
 	"$users->remove()": {
@@ -4233,6 +5475,12 @@
 		"prefix": "->rewind()",
 		"body": "->rewind()",
 		"description": "Moves the cusor to the first element",
+		"scope": "php"
+	},
+	"$users->role()": {
+		"prefix": "->role()",
+		"body": "->role(${1:\\$role})",
+		"description": "Shortcut for `$users-&gt;filterBy(&#039;role&#039;, &#039;admin&#039;)`",
 		"scope": "php"
 	},
 	"$users->search()": {
@@ -4287,6 +5535,18 @@
 		"prefix": "->valid()",
 		"body": "->valid()",
 		"description": "Checks if the current element is valid",
+		"scope": "php"
+	},
+	"$users->values()": {
+		"prefix": "->values()",
+		"body": "->values()",
+		"description": "Returns an non-associative array with all values",
+		"scope": "php"
+	},
+	"$users->when()": {
+		"prefix": "->when()",
+		"body": "->when(${1:\\$condition}, ${2:\\$callback}, ${3:\\$fallback = null})",
+		"description": "The when method only executes the given Closure when the first parameter is true. If the first parameter is false, the Closure will not be executed.",
 		"scope": "php"
 	},
 	"$users->without()": {
