@@ -5,3 +5,5 @@
 I've added tabs stops for every parameter and included the corresponding description for every snippet.
 
 ![Kirby snippets](https://user-images.githubusercontent.com/7975568/51969158-fdd5d880-2473-11e9-80f7-836f98975a2c.gif)
+
+### [→ Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=medienbaecker.kirby-snippets)
