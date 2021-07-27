@@ -1,6 +1,25 @@
 # Kirby snippets for Visual Studio Code
 
- Kirby snippets for Visual Studio Code containing the [field](https://getkirby.com/docs/reference/templates/field-methods), [file](https://getkirby.com/docs/reference/objects/file), [files](https://getkirby.com/docs/reference/objects/files), [kirby](https://getkirby.com/docs/reference/objects/kirby), [language](https://getkirby.com/docs/reference/objects/language), [languages](https://getkirby.com/docs/reference/objects/languages), [page](https://getkirby.com/docs/reference/objects/page), [pages](https://getkirby.com/docs/reference/objects/pages), [pagination](https://getkirby.com/docs/reference/objects/pagination), [request](https://getkirby.com/docs/reference/objects/request), [session](https://getkirby.com/docs/reference/objects/session), [site](https://getkirby.com/docs/reference/objects/site), [user](https://getkirby.com/docs/reference/objects/user) and [users](https://getkirby.com/docs/reference/objects/users) methods you can find in the Kirby Reference.
+ Kirby snippets for Visual Studio Code containing the following methods you can find in the Kirby Reference:
+ 
+[Field methods](getkirby.com/docs/reference/templates/field-methods)
+[Kirby methods](getkirby.com/docs/reference/objects/cms/app)
+[Site methods](getkirby.com/docs/reference/objects/cms/site)
+[Page methods](getkirby.com/docs/reference/objects/cms/page)
+[Pages methods](getkirby.com/docs/reference/objects/cms/pages)
+[File methods](getkirby.com/docs/reference/objects/cms/file)
+[Files methods](getkirby.com/docs/reference/objects/cms/files)
+[User methods](getkirby.com/docs/reference/objects/cms/user)
+[Users methods](getkirby.com/docs/reference/objects/cms/users)
+[Blocks methods](getkirby.com/docs/reference/objects/cms/blocks)
+[Blocks methods](getkirby.com/docs/reference/objects/cms/block)
+[Layouts methods](getkirby.com/docs/reference/objects/cms/layouts)
+[Layout methods](getkirby.com/docs/reference/objects/cms/layout)
+[Language methods](getkirby.com/docs/reference/objects/cms/language)
+[Languages methods](getkirby.com/docs/reference/objects/cms/languages)
+[Pagination methods](getkirby.com/docs/reference/objects/cms/pagination)
+[Request methods](getkirby.com/docs/reference/objects/http/request)
+[Session methods](getkirby.com/docs/reference/objects/session/session-data)
 
 I've added tabs stops for every parameter and included the corresponding description for every snippet.
 
