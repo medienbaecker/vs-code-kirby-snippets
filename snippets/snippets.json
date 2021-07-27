@@ -4847,6 +4847,1044 @@
 		"description": "Alias for $this-&gt;not()",
 		"scope": "php"
 	},
+	"$blocks->add()": {
+		"prefix": "->add()",
+		"body": "->add(${1:\\$object})",
+		"description": "Adds a single object or an entire second collection to the current collection",
+		"scope": "php"
+	},
+	"$blocks->append()": {
+		"prefix": "->append()",
+		"body": "->append(${1:\\$args = null})",
+		"description": "Appends an element to the data array",
+		"scope": "php"
+	},
+	"$blocks->callMethod()": {
+		"prefix": "->callMethod()",
+		"body": "->callMethod(${1:\\$method}, ${2:\\$args = [ ]})",
+		"description": "Calls a registered method class with the passed arguments",
+		"scope": "php"
+	},
+	"$blocks->chunk()": {
+		"prefix": "->chunk()",
+		"body": "->chunk(${1:\\$size})",
+		"description": "Creates chunks of the same size.",
+		"scope": "php"
+	},
+	"$blocks->clone()": {
+		"prefix": "->clone()",
+		"body": "->clone()",
+		"description": "Returns a cloned instance of the collection",
+		"scope": "php"
+	},
+	"$blocks->count()": {
+		"prefix": "->count()",
+		"body": "->count()",
+		"description": "Counts all elements",
+		"scope": "php"
+	},
+	"$blocks->current()": {
+		"prefix": "->current()",
+		"body": "->current()",
+		"description": "Returns the current element",
+		"scope": "php"
+	},
+	"$blocks->data()": {
+		"prefix": "->data()",
+		"body": "->data(${1:\\$data = null})",
+		"description": "Getter and setter for the data",
+		"scope": "php"
+	},
+	"$blocks->empty()": {
+		"prefix": "->empty()",
+		"body": "->empty()",
+		"description": "Clone and remove all elements from the collection",
+		"scope": "php"
+	},
+	"$blocks->excerpt()": {
+		"prefix": "->excerpt()",
+		"body": "->excerpt(${1:\\$args = null})",
+		"description": "Converts the blocks to HTML and then uses the Str::excerpt method to create a non-formatted, shortened excerpt from it",
+		"scope": "php"
+	},
+	"$blocks->extend()": {
+		"prefix": "->extend()",
+		"body": "->extend(${1:\\$items})",
+		"description": "Adds all elements to the collection",
+		"scope": "php"
+	},
+	"$blocks->filter()": {
+		"prefix": "->filter()",
+		"body": "->filter(${1:\\$field}, ${2:\\$args = null})",
+		"description": "Filters elements by one of the predefined filter methods, by a custom filter function or an array of filters",
+		"scope": "php"
+	},
+	"$blocks->filterBy()": {
+		"prefix": "->filterBy()",
+		"body": "->filterBy(${1:\\$args = null})",
+		"description": "Alias for `Kirby\\Toolkit\\Collection::filter`",
+		"scope": "php"
+	},
+	"$blocks->find()": {
+		"prefix": "->find()",
+		"body": "->find(${1:\\$keys = null})",
+		"description": "Find one or multiple elements by id",
+		"scope": "php"
+	},
+	"$blocks->findBy()": {
+		"prefix": "->findBy()",
+		"body": "->findBy(${1:\\$attribute}, ${2:\\$value})",
+		"description": "Find a single element by an attribute and its value",
+		"scope": "php"
+	},
+	"$blocks->findByKey()": {
+		"prefix": "->findByKey()",
+		"body": "->findByKey(${1:\\$key})",
+		"description": "Find a single element by key (id)",
+		"scope": "php"
+	},
+	"$blocks->first()": {
+		"prefix": "->first()",
+		"body": "->first()",
+		"description": "Returns the first element",
+		"scope": "php"
+	},
+	"$blocks->flip()": {
+		"prefix": "->flip()",
+		"body": "->flip()",
+		"description": "Returns the elements in reverse order",
+		"scope": "php"
+	},
+	"$blocks->get()": {
+		"prefix": "->get()",
+		"body": "->get(${1:\\$key}, ${2:\\$default = null})",
+		"description": "Getter",
+		"scope": "php"
+	},
+	"$blocks->getAttribute()": {
+		"prefix": "->getAttribute()",
+		"body": "->getAttribute(${1:\\$item}, ${2:\\$attribute}, ${3:\\$split = false}, ${4:\\$related = null})",
+		"description": "Extracts an attribute value from the given element in the collection. This is useful if elements in the collection might be objects, arrays or anything else and you need to get the value independently from that. We use it for `filter`.",
+		"scope": "php"
+	},
+	"$blocks->getIterator()": {
+		"prefix": "->getIterator()",
+		"body": "->getIterator()",
+		"description": "Get an iterator for the items.",
+		"scope": "php"
+	},
+	"$blocks->group()": {
+		"prefix": "->group()",
+		"body": "->group(${1:\\$field}, ${2:\\$i = true})",
+		"description": "Groups the items by a given field or callback. Returns a collection with an item for each group and a collection for each group.",
+		"scope": "php"
+	},
+	"$blocks->groupBy()": {
+		"prefix": "->groupBy()",
+		"body": "->groupBy(${1:\\$args = null})",
+		"description": "Alias for `Kirby\\Toolkit\\Collection::group`",
+		"scope": "php"
+	},
+	"$blocks->has()": {
+		"prefix": "->has()",
+		"body": "->has(${1:\\$id})",
+		"description": "Checks if the given object or id is in the collection",
+		"scope": "php"
+	},
+	"$blocks->hasMethod()": {
+		"prefix": "->hasMethod()",
+		"body": "->hasMethod(${1:\\$method})",
+		"description": "Checks if the object has a registered method",
+		"scope": "php"
+	},
+	"$blocks->indexOf()": {
+		"prefix": "->indexOf()",
+		"body": "->indexOf(${1:\\$object})",
+		"description": "Correct position detection for objects.",
+		"scope": "php"
+	},
+	"$blocks->intersection()": {
+		"prefix": "->intersection()",
+		"body": "->intersection(${1:\\$other})",
+		"description": "Returns a Collection with the intersection of the given elements",
+		"scope": "php"
+	},
+	"$blocks->intersects()": {
+		"prefix": "->intersects()",
+		"body": "->intersects(${1:\\$other})",
+		"description": "Checks if there is an intersection between the given collection and this collection",
+		"scope": "php"
+	},
+	"$blocks->isEmpty()": {
+		"prefix": "->isEmpty()",
+		"body": "->isEmpty()",
+		"description": "Checks if the number of elements is zero",
+		"scope": "php"
+	},
+	"$blocks->isEven()": {
+		"prefix": "->isEven()",
+		"body": "->isEven()",
+		"description": "Checks if the number of elements is even",
+		"scope": "php"
+	},
+	"$blocks->isNotEmpty()": {
+		"prefix": "->isNotEmpty()",
+		"body": "->isNotEmpty()",
+		"description": "Checks if the number of elements is more than zero",
+		"scope": "php"
+	},
+	"$blocks->isOdd()": {
+		"prefix": "->isOdd()",
+		"body": "->isOdd()",
+		"description": "Checks if the number of elements is odd",
+		"scope": "php"
+	},
+	"$blocks->key()": {
+		"prefix": "->key()",
+		"body": "->key()",
+		"description": "Returns the current key",
+		"scope": "php"
+	},
+	"$blocks->keyOf()": {
+		"prefix": "->keyOf()",
+		"body": "->keyOf(${1:\\$needle})",
+		"description": "Tries to find the key for the given element",
+		"scope": "php"
+	},
+	"$blocks->keys()": {
+		"prefix": "->keys()",
+		"body": "->keys()",
+		"description": "Returns an array of all keys",
+		"scope": "php"
+	},
+	"$blocks->last()": {
+		"prefix": "->last()",
+		"body": "->last()",
+		"description": "Returns the last element",
+		"scope": "php"
+	},
+	"$blocks->limit()": {
+		"prefix": "->limit()",
+		"body": "->limit(${1:\\$limit})",
+		"description": "Returns a new object with a limited number of elements",
+		"scope": "php"
+	},
+	"$blocks->map()": {
+		"prefix": "->map()",
+		"body": "->map(${1:\\$callback})",
+		"description": "Map a function to each element",
+		"scope": "php"
+	},
+	"$blocks->next()": {
+		"prefix": "->next()",
+		"body": "->next()",
+		"description": "Moves the cursor to the next element and returns it",
+		"scope": "php"
+	},
+	"$blocks->not()": {
+		"prefix": "->not()",
+		"body": "->not(${1:\\$keys = null})",
+		"description": "Returns a Collection without the given element(s)",
+		"scope": "php"
+	},
+	"$blocks->nth()": {
+		"prefix": "->nth()",
+		"body": "->nth(${1:\\$n})",
+		"description": "Returns the nth element from the collection",
+		"scope": "php"
+	},
+	"$blocks->offset()": {
+		"prefix": "->offset()",
+		"body": "->offset(${1:\\$offset})",
+		"description": "Returns a new object starting from the given offset",
+		"scope": "php"
+	},
+	"$blocks->paginate()": {
+		"prefix": "->paginate()",
+		"body": "->paginate(${1:\\$arguments = null})",
+		"description": "Add pagination and return a sliced set of data.",
+		"scope": "php"
+	},
+	"$blocks->pagination()": {
+		"prefix": "->pagination()",
+		"body": "->pagination()",
+		"description": "Get the previously added pagination object",
+		"scope": "php"
+	},
+	"$blocks->parent()": {
+		"prefix": "->parent()",
+		"body": "->parent()",
+		"description": "Returns the parent model",
+		"scope": "php"
+	},
+	"$blocks->pluck()": {
+		"prefix": "->pluck()",
+		"body": "->pluck(${1:\\$field}, ${2:\\$split = null}, ${3:\\$unique = false})",
+		"description": "Extracts all values for a single field into a new array",
+		"scope": "php"
+	},
+	"$blocks->prepend()": {
+		"prefix": "->prepend()",
+		"body": "->prepend(${1:\\$args = null})",
+		"description": "Prepends an element to the data array",
+		"scope": "php"
+	},
+	"$blocks->prev()": {
+		"prefix": "->prev()",
+		"body": "->prev()",
+		"description": "Moves the cursor to the previous element and returns it",
+		"scope": "php"
+	},
+	"$blocks->query()": {
+		"prefix": "->query()",
+		"body": "->query(${1:\\$query = [ ]})",
+		"description": "Runs a combination of filter, sort, not, offset, limit, search and paginate on the collection.",
+		"scope": "php"
+	},
+	"$blocks->remove()": {
+		"prefix": "->remove()",
+		"body": "->remove(${1:\\$key})",
+		"description": "Removes an object",
+		"scope": "php"
+	},
+	"$blocks->rewind()": {
+		"prefix": "->rewind()",
+		"body": "->rewind()",
+		"description": "Moves the cusor to the first element",
+		"scope": "php"
+	},
+	"$blocks->search()": {
+		"prefix": "->search()",
+		"body": "->search(${1:\\$query = null}, ${2:\\$params = [ ]})",
+		"description": "Searches the collection",
+		"scope": "php"
+	},
+	"$blocks->set()": {
+		"prefix": "->set()",
+		"body": "->set(${1:\\$key}, ${2:\\$value = null})",
+		"description": "Adds a new element to the collection",
+		"scope": "php"
+	},
+	"$blocks->shuffle()": {
+		"prefix": "->shuffle()",
+		"body": "->shuffle()",
+		"description": "Shuffle all elements",
+		"scope": "php"
+	},
+	"$blocks->slice()": {
+		"prefix": "->slice()",
+		"body": "->slice(${1:\\$offset = 0}, ${2:\\$limit = null})",
+		"description": "Returns a slice of the object",
+		"scope": "php"
+	},
+	"$blocks->sort()": {
+		"prefix": "->sort()",
+		"body": "->sort()",
+		"description": "Sorts the elements by any number of fields",
+		"scope": "php"
+	},
+	"$blocks->sortBy()": {
+		"prefix": "->sortBy()",
+		"body": "->sortBy(${1:\\$args = null})",
+		"description": "Alias for `Kirby\\Toolkit\\Collection::sort`",
+		"scope": "php"
+	},
+	"$blocks->toArray()": {
+		"prefix": "->toArray()",
+		"body": "->toArray(${1:\\$map = null})",
+		"description": "Convert the items to an array",
+		"scope": "php"
+	},
+	"$blocks->toHtml()": {
+		"prefix": "->toHtml()",
+		"body": "->toHtml()",
+		"description": "Convert all blocks to HTML",
+		"scope": "php"
+	},
+	"$blocks->toJson()": {
+		"prefix": "->toJson()",
+		"body": "->toJson()",
+		"description": "Converts the object into a JSON string",
+		"scope": "php"
+	},
+	"$blocks->toString()": {
+		"prefix": "->toString()",
+		"body": "->toString()",
+		"description": "Converts the object to a string",
+		"scope": "php"
+	},
+	"$blocks->valid()": {
+		"prefix": "->valid()",
+		"body": "->valid()",
+		"description": "Checks if the current element is valid",
+		"scope": "php"
+	},
+	"$blocks->values()": {
+		"prefix": "->values()",
+		"body": "->values(${1:\\$map = null})",
+		"description": "Returns a non-associative array with all values. If a mapping Closure is passed, all values are processed by the Closure.",
+		"scope": "php"
+	},
+	"$blocks->when()": {
+		"prefix": "->when()",
+		"body": "->when(${1:\\$condition}, ${2:\\$callback}, ${3:\\$fallback = null})",
+		"description": "The when method only executes the given Closure when the first parameter is true. If the first parameter is false, the Closure will not be executed.",
+		"scope": "php"
+	},
+	"$blocks->without()": {
+		"prefix": "->without()",
+		"body": "->without(${1:\\$keys = null})",
+		"description": "Alias for $this-&gt;not()",
+		"scope": "php"
+	},
+	"$block->content()": {
+		"prefix": "->content()",
+		"body": "->content()",
+		"description": "Returns the content object",
+		"scope": "php"
+	},
+	"$block->controller()": {
+		"prefix": "->controller()",
+		"body": "->controller()",
+		"description": "Controller for the block snippet",
+		"scope": "php"
+	},
+	"$block->excerpt()": {
+		"prefix": "->excerpt()",
+		"body": "->excerpt(${1:\\$args = null})",
+		"description": "Converts the block to HTML and then uses the Str::excerpt method to create a non-formatted, shortened excerpt from it",
+		"scope": "php"
+	},
+	"$block->hasNext()": {
+		"prefix": "->hasNext()",
+		"body": "->hasNext(${1:\\$collection = null})",
+		"description": "Checks if there&#039;s a next item in the collection",
+		"scope": "php"
+	},
+	"$block->hasPrev()": {
+		"prefix": "->hasPrev()",
+		"body": "->hasPrev(${1:\\$collection = null})",
+		"description": "Checks if there&#039;s a previous item in the collection",
+		"scope": "php"
+	},
+	"$block->id()": {
+		"prefix": "->id()",
+		"body": "->id()",
+		"description": "Returns the unique item id (UUID v4)",
+		"scope": "php"
+	},
+	"$block->indexOf()": {
+		"prefix": "->indexOf()",
+		"body": "->indexOf(${1:\\$collection = null})",
+		"description": "Returns the position / index in the collection",
+		"scope": "php"
+	},
+	"$block->is()": {
+		"prefix": "->is()",
+		"body": "->is(${1:\\$item})",
+		"description": "Compares the item to another one",
+		"scope": "php"
+	},
+	"$block->isEmpty()": {
+		"prefix": "->isEmpty()",
+		"body": "->isEmpty()",
+		"description": "Checks if the block is empty",
+		"scope": "php"
+	},
+	"$block->isFirst()": {
+		"prefix": "->isFirst()",
+		"body": "->isFirst(${1:\\$collection = null})",
+		"description": "Checks if the item is the first in the collection",
+		"scope": "php"
+	},
+	"$block->isHidden()": {
+		"prefix": "->isHidden()",
+		"body": "->isHidden()",
+		"description": "Checks if the block is hidden from being rendered in the frontend",
+		"scope": "php"
+	},
+	"$block->isLast()": {
+		"prefix": "->isLast()",
+		"body": "->isLast(${1:\\$collection = null})",
+		"description": "Checks if the item is the last in the collection",
+		"scope": "php"
+	},
+	"$block->isNotEmpty()": {
+		"prefix": "->isNotEmpty()",
+		"body": "->isNotEmpty()",
+		"description": "Checks if the block is not empty",
+		"scope": "php"
+	},
+	"$block->isNth()": {
+		"prefix": "->isNth()",
+		"body": "->isNth(${1:\\$n}, ${2:\\$collection = null})",
+		"description": "Checks if the item is at a certain position",
+		"scope": "php"
+	},
+	"$block->kirby()": {
+		"prefix": "->kirby()",
+		"body": "->kirby()",
+		"description": "Returns the Kirby instance",
+		"scope": "php"
+	},
+	"$block->next()": {
+		"prefix": "->next()",
+		"body": "->next(${1:\\$collection = null})",
+		"description": "Returns the next item in the collection if available",
+		"scope": "php"
+	},
+	"$block->nextAll()": {
+		"prefix": "->nextAll()",
+		"body": "->nextAll(${1:\\$collection = null})",
+		"description": "Returns the end of the collection starting after the current item",
+		"scope": "php"
+	},
+	"$block->parent()": {
+		"prefix": "->parent()",
+		"body": "->parent()",
+		"description": "Returns the parent model",
+		"scope": "php"
+	},
+	"$block->prev()": {
+		"prefix": "->prev()",
+		"body": "->prev(${1:\\$collection = null})",
+		"description": "Returns the previous item in the collection if available",
+		"scope": "php"
+	},
+	"$block->prevAll()": {
+		"prefix": "->prevAll()",
+		"body": "->prevAll(${1:\\$collection = null})",
+		"description": "Returns the beginning of the collection before the current item",
+		"scope": "php"
+	},
+	"$block->siblings()": {
+		"prefix": "->siblings()",
+		"body": "->siblings(${1:\\$self = true})",
+		"description": "Returns all sibling elements",
+		"scope": "php"
+	},
+	"$block->toArray()": {
+		"prefix": "->toArray()",
+		"body": "->toArray()",
+		"description": "The result is being sent to the editor via the API in the panel",
+		"scope": "php"
+	},
+	"$block->toField()": {
+		"prefix": "->toField()",
+		"body": "->toField()",
+		"description": "Converts the block to html first and then places that inside a field object. This can be used further with all available field methods",
+		"scope": "php"
+	},
+	"$block->toHtml()": {
+		"prefix": "->toHtml()",
+		"body": "->toHtml()",
+		"description": "Converts the block to HTML",
+		"scope": "php"
+	},
+	"$block->type()": {
+		"prefix": "->type()",
+		"body": "->type()",
+		"description": "Returns the block type",
+		"scope": "php"
+	},
+	"$layouts->add()": {
+		"prefix": "->add()",
+		"body": "->add(${1:\\$object})",
+		"description": "Adds a single object or an entire second collection to the current collection",
+		"scope": "php"
+	},
+	"$layouts->append()": {
+		"prefix": "->append()",
+		"body": "->append(${1:\\$args = null})",
+		"description": "Appends an element to the data array",
+		"scope": "php"
+	},
+	"$layouts->callMethod()": {
+		"prefix": "->callMethod()",
+		"body": "->callMethod(${1:\\$method}, ${2:\\$args = [ ]})",
+		"description": "Calls a registered method class with the passed arguments",
+		"scope": "php"
+	},
+	"$layouts->chunk()": {
+		"prefix": "->chunk()",
+		"body": "->chunk(${1:\\$size})",
+		"description": "Creates chunks of the same size.",
+		"scope": "php"
+	},
+	"$layouts->clone()": {
+		"prefix": "->clone()",
+		"body": "->clone()",
+		"description": "Returns a cloned instance of the collection",
+		"scope": "php"
+	},
+	"$layouts->count()": {
+		"prefix": "->count()",
+		"body": "->count()",
+		"description": "Counts all elements",
+		"scope": "php"
+	},
+	"$layouts->current()": {
+		"prefix": "->current()",
+		"body": "->current()",
+		"description": "Returns the current element",
+		"scope": "php"
+	},
+	"$layouts->data()": {
+		"prefix": "->data()",
+		"body": "->data(${1:\\$data = null})",
+		"description": "Getter and setter for the data",
+		"scope": "php"
+	},
+	"$layouts->empty()": {
+		"prefix": "->empty()",
+		"body": "->empty()",
+		"description": "Clone and remove all elements from the collection",
+		"scope": "php"
+	},
+	"$layouts->extend()": {
+		"prefix": "->extend()",
+		"body": "->extend(${1:\\$items})",
+		"description": "Adds all elements to the collection",
+		"scope": "php"
+	},
+	"$layouts->filter()": {
+		"prefix": "->filter()",
+		"body": "->filter(${1:\\$field}, ${2:\\$args = null})",
+		"description": "Filters elements by one of the predefined filter methods, by a custom filter function or an array of filters",
+		"scope": "php"
+	},
+	"$layouts->filterBy()": {
+		"prefix": "->filterBy()",
+		"body": "->filterBy(${1:\\$args = null})",
+		"description": "Alias for `Kirby\\Toolkit\\Collection::filter`",
+		"scope": "php"
+	},
+	"$layouts->find()": {
+		"prefix": "->find()",
+		"body": "->find(${1:\\$keys = null})",
+		"description": "Find one or multiple elements by id",
+		"scope": "php"
+	},
+	"$layouts->findBy()": {
+		"prefix": "->findBy()",
+		"body": "->findBy(${1:\\$attribute}, ${2:\\$value})",
+		"description": "Find a single element by an attribute and its value",
+		"scope": "php"
+	},
+	"$layouts->findByKey()": {
+		"prefix": "->findByKey()",
+		"body": "->findByKey(${1:\\$key})",
+		"description": "Find a single element by key (id)",
+		"scope": "php"
+	},
+	"$layouts->first()": {
+		"prefix": "->first()",
+		"body": "->first()",
+		"description": "Returns the first element",
+		"scope": "php"
+	},
+	"$layouts->flip()": {
+		"prefix": "->flip()",
+		"body": "->flip()",
+		"description": "Returns the elements in reverse order",
+		"scope": "php"
+	},
+	"$layouts->get()": {
+		"prefix": "->get()",
+		"body": "->get(${1:\\$key}, ${2:\\$default = null})",
+		"description": "Getter",
+		"scope": "php"
+	},
+	"$layouts->getAttribute()": {
+		"prefix": "->getAttribute()",
+		"body": "->getAttribute(${1:\\$item}, ${2:\\$attribute}, ${3:\\$split = false}, ${4:\\$related = null})",
+		"description": "Extracts an attribute value from the given element in the collection. This is useful if elements in the collection might be objects, arrays or anything else and you need to get the value independently from that. We use it for `filter`.",
+		"scope": "php"
+	},
+	"$layouts->getIterator()": {
+		"prefix": "->getIterator()",
+		"body": "->getIterator()",
+		"description": "Get an iterator for the items.",
+		"scope": "php"
+	},
+	"$layouts->group()": {
+		"prefix": "->group()",
+		"body": "->group(${1:\\$field}, ${2:\\$i = true})",
+		"description": "Groups the items by a given field or callback. Returns a collection with an item for each group and a collection for each group.",
+		"scope": "php"
+	},
+	"$layouts->groupBy()": {
+		"prefix": "->groupBy()",
+		"body": "->groupBy(${1:\\$args = null})",
+		"description": "Alias for `Kirby\\Toolkit\\Collection::group`",
+		"scope": "php"
+	},
+	"$layouts->has()": {
+		"prefix": "->has()",
+		"body": "->has(${1:\\$id})",
+		"description": "Checks if the given object or id is in the collection",
+		"scope": "php"
+	},
+	"$layouts->hasMethod()": {
+		"prefix": "->hasMethod()",
+		"body": "->hasMethod(${1:\\$method})",
+		"description": "Checks if the object has a registered method",
+		"scope": "php"
+	},
+	"$layouts->indexOf()": {
+		"prefix": "->indexOf()",
+		"body": "->indexOf(${1:\\$object})",
+		"description": "Correct position detection for objects.",
+		"scope": "php"
+	},
+	"$layouts->intersection()": {
+		"prefix": "->intersection()",
+		"body": "->intersection(${1:\\$other})",
+		"description": "Returns a Collection with the intersection of the given elements",
+		"scope": "php"
+	},
+	"$layouts->intersects()": {
+		"prefix": "->intersects()",
+		"body": "->intersects(${1:\\$other})",
+		"description": "Checks if there is an intersection between the given collection and this collection",
+		"scope": "php"
+	},
+	"$layouts->isEmpty()": {
+		"prefix": "->isEmpty()",
+		"body": "->isEmpty()",
+		"description": "Checks if the number of elements is zero",
+		"scope": "php"
+	},
+	"$layouts->isEven()": {
+		"prefix": "->isEven()",
+		"body": "->isEven()",
+		"description": "Checks if the number of elements is even",
+		"scope": "php"
+	},
+	"$layouts->isNotEmpty()": {
+		"prefix": "->isNotEmpty()",
+		"body": "->isNotEmpty()",
+		"description": "Checks if the number of elements is more than zero",
+		"scope": "php"
+	},
+	"$layouts->isOdd()": {
+		"prefix": "->isOdd()",
+		"body": "->isOdd()",
+		"description": "Checks if the number of elements is odd",
+		"scope": "php"
+	},
+	"$layouts->key()": {
+		"prefix": "->key()",
+		"body": "->key()",
+		"description": "Returns the current key",
+		"scope": "php"
+	},
+	"$layouts->keyOf()": {
+		"prefix": "->keyOf()",
+		"body": "->keyOf(${1:\\$needle})",
+		"description": "Tries to find the key for the given element",
+		"scope": "php"
+	},
+	"$layouts->keys()": {
+		"prefix": "->keys()",
+		"body": "->keys()",
+		"description": "Returns an array of all keys",
+		"scope": "php"
+	},
+	"$layouts->last()": {
+		"prefix": "->last()",
+		"body": "->last()",
+		"description": "Returns the last element",
+		"scope": "php"
+	},
+	"$layouts->limit()": {
+		"prefix": "->limit()",
+		"body": "->limit(${1:\\$limit})",
+		"description": "Returns a new object with a limited number of elements",
+		"scope": "php"
+	},
+	"$layouts->map()": {
+		"prefix": "->map()",
+		"body": "->map(${1:\\$callback})",
+		"description": "Map a function to each element",
+		"scope": "php"
+	},
+	"$layouts->next()": {
+		"prefix": "->next()",
+		"body": "->next()",
+		"description": "Moves the cursor to the next element and returns it",
+		"scope": "php"
+	},
+	"$layouts->not()": {
+		"prefix": "->not()",
+		"body": "->not(${1:\\$keys = null})",
+		"description": "Returns a Collection without the given element(s)",
+		"scope": "php"
+	},
+	"$layouts->nth()": {
+		"prefix": "->nth()",
+		"body": "->nth(${1:\\$n})",
+		"description": "Returns the nth element from the collection",
+		"scope": "php"
+	},
+	"$layouts->offset()": {
+		"prefix": "->offset()",
+		"body": "->offset(${1:\\$offset})",
+		"description": "Returns a new object starting from the given offset",
+		"scope": "php"
+	},
+	"$layouts->paginate()": {
+		"prefix": "->paginate()",
+		"body": "->paginate(${1:\\$arguments = null})",
+		"description": "Add pagination and return a sliced set of data.",
+		"scope": "php"
+	},
+	"$layouts->pagination()": {
+		"prefix": "->pagination()",
+		"body": "->pagination()",
+		"description": "Get the previously added pagination object",
+		"scope": "php"
+	},
+	"$layouts->parent()": {
+		"prefix": "->parent()",
+		"body": "->parent()",
+		"description": "Returns the parent model",
+		"scope": "php"
+	},
+	"$layouts->pluck()": {
+		"prefix": "->pluck()",
+		"body": "->pluck(${1:\\$field}, ${2:\\$split = null}, ${3:\\$unique = false})",
+		"description": "Extracts all values for a single field into a new array",
+		"scope": "php"
+	},
+	"$layouts->prepend()": {
+		"prefix": "->prepend()",
+		"body": "->prepend(${1:\\$args = null})",
+		"description": "Prepends an element to the data array",
+		"scope": "php"
+	},
+	"$layouts->prev()": {
+		"prefix": "->prev()",
+		"body": "->prev()",
+		"description": "Moves the cursor to the previous element and returns it",
+		"scope": "php"
+	},
+	"$layouts->query()": {
+		"prefix": "->query()",
+		"body": "->query(${1:\\$query = [ ]})",
+		"description": "Runs a combination of filter, sort, not, offset, limit, search and paginate on the collection.",
+		"scope": "php"
+	},
+	"$layouts->remove()": {
+		"prefix": "->remove()",
+		"body": "->remove(${1:\\$key})",
+		"description": "Removes an object",
+		"scope": "php"
+	},
+	"$layouts->rewind()": {
+		"prefix": "->rewind()",
+		"body": "->rewind()",
+		"description": "Moves the cusor to the first element",
+		"scope": "php"
+	},
+	"$layouts->search()": {
+		"prefix": "->search()",
+		"body": "->search(${1:\\$query = null}, ${2:\\$params = [ ]})",
+		"description": "Searches the collection",
+		"scope": "php"
+	},
+	"$layouts->set()": {
+		"prefix": "->set()",
+		"body": "->set(${1:\\$key}, ${2:\\$value = null})",
+		"description": "Adds a new element to the collection",
+		"scope": "php"
+	},
+	"$layouts->shuffle()": {
+		"prefix": "->shuffle()",
+		"body": "->shuffle()",
+		"description": "Shuffle all elements",
+		"scope": "php"
+	},
+	"$layouts->slice()": {
+		"prefix": "->slice()",
+		"body": "->slice(${1:\\$offset = 0}, ${2:\\$limit = null})",
+		"description": "Returns a slice of the object",
+		"scope": "php"
+	},
+	"$layouts->sort()": {
+		"prefix": "->sort()",
+		"body": "->sort()",
+		"description": "Sorts the elements by any number of fields",
+		"scope": "php"
+	},
+	"$layouts->sortBy()": {
+		"prefix": "->sortBy()",
+		"body": "->sortBy(${1:\\$args = null})",
+		"description": "Alias for `Kirby\\Toolkit\\Collection::sort`",
+		"scope": "php"
+	},
+	"$layouts->toArray()": {
+		"prefix": "->toArray()",
+		"body": "->toArray(${1:\\$map = null})",
+		"description": "Convert the items to an array",
+		"scope": "php"
+	},
+	"$layouts->toJson()": {
+		"prefix": "->toJson()",
+		"body": "->toJson()",
+		"description": "Converts the object into a JSON string",
+		"scope": "php"
+	},
+	"$layouts->toString()": {
+		"prefix": "->toString()",
+		"body": "->toString()",
+		"description": "Converts the object to a string",
+		"scope": "php"
+	},
+	"$layouts->valid()": {
+		"prefix": "->valid()",
+		"body": "->valid()",
+		"description": "Checks if the current element is valid",
+		"scope": "php"
+	},
+	"$layouts->values()": {
+		"prefix": "->values()",
+		"body": "->values(${1:\\$map = null})",
+		"description": "Returns a non-associative array with all values. If a mapping Closure is passed, all values are processed by the Closure.",
+		"scope": "php"
+	},
+	"$layouts->when()": {
+		"prefix": "->when()",
+		"body": "->when(${1:\\$condition}, ${2:\\$callback}, ${3:\\$fallback = null})",
+		"description": "The when method only executes the given Closure when the first parameter is true. If the first parameter is false, the Closure will not be executed.",
+		"scope": "php"
+	},
+	"$layouts->without()": {
+		"prefix": "->without()",
+		"body": "->without(${1:\\$keys = null})",
+		"description": "Alias for $this-&gt;not()",
+		"scope": "php"
+	},
+	"$layout->attrs()": {
+		"prefix": "->attrs()",
+		"body": "->attrs()",
+		"description": "Returns the attrs object",
+		"scope": "php"
+	},
+	"$layout->columns()": {
+		"prefix": "->columns()",
+		"body": "->columns()",
+		"description": "Returns the columns in this layout",
+		"scope": "php"
+	},
+	"$layout->hasNext()": {
+		"prefix": "->hasNext()",
+		"body": "->hasNext(${1:\\$collection = null})",
+		"description": "Checks if there&#039;s a next item in the collection",
+		"scope": "php"
+	},
+	"$layout->hasPrev()": {
+		"prefix": "->hasPrev()",
+		"body": "->hasPrev(${1:\\$collection = null})",
+		"description": "Checks if there&#039;s a previous item in the collection",
+		"scope": "php"
+	},
+	"$layout->id()": {
+		"prefix": "->id()",
+		"body": "->id()",
+		"description": "Returns the unique item id (UUID v4)",
+		"scope": "php"
+	},
+	"$layout->indexOf()": {
+		"prefix": "->indexOf()",
+		"body": "->indexOf(${1:\\$collection = null})",
+		"description": "Returns the position / index in the collection",
+		"scope": "php"
+	},
+	"$layout->is()": {
+		"prefix": "->is()",
+		"body": "->is(${1:\\$item})",
+		"description": "Compares the item to another one",
+		"scope": "php"
+	},
+	"$layout->isEmpty()": {
+		"prefix": "->isEmpty()",
+		"body": "->isEmpty()",
+		"description": "Checks if the layout is empty",
+		"scope": "php"
+	},
+	"$layout->isFirst()": {
+		"prefix": "->isFirst()",
+		"body": "->isFirst(${1:\\$collection = null})",
+		"description": "Checks if the item is the first in the collection",
+		"scope": "php"
+	},
+	"$layout->isLast()": {
+		"prefix": "->isLast()",
+		"body": "->isLast(${1:\\$collection = null})",
+		"description": "Checks if the item is the last in the collection",
+		"scope": "php"
+	},
+	"$layout->isNotEmpty()": {
+		"prefix": "->isNotEmpty()",
+		"body": "->isNotEmpty()",
+		"description": "Checks if the layout is not empty",
+		"scope": "php"
+	},
+	"$layout->isNth()": {
+		"prefix": "->isNth()",
+		"body": "->isNth(${1:\\$n}, ${2:\\$collection = null})",
+		"description": "Checks if the item is at a certain position",
+		"scope": "php"
+	},
+	"$layout->kirby()": {
+		"prefix": "->kirby()",
+		"body": "->kirby()",
+		"description": "Returns the Kirby instance",
+		"scope": "php"
+	},
+	"$layout->next()": {
+		"prefix": "->next()",
+		"body": "->next(${1:\\$collection = null})",
+		"description": "Returns the next item in the collection if available",
+		"scope": "php"
+	},
+	"$layout->nextAll()": {
+		"prefix": "->nextAll()",
+		"body": "->nextAll(${1:\\$collection = null})",
+		"description": "Returns the end of the collection starting after the current item",
+		"scope": "php"
+	},
+	"$layout->parent()": {
+		"prefix": "->parent()",
+		"body": "->parent()",
+		"description": "Returns the parent model",
+		"scope": "php"
+	},
+	"$layout->prev()": {
+		"prefix": "->prev()",
+		"body": "->prev(${1:\\$collection = null})",
+		"description": "Returns the previous item in the collection if available",
+		"scope": "php"
+	},
+	"$layout->prevAll()": {
+		"prefix": "->prevAll()",
+		"body": "->prevAll(${1:\\$collection = null})",
+		"description": "Returns the beginning of the collection before the current item",
+		"scope": "php"
+	},
+	"$layout->siblings()": {
+		"prefix": "->siblings()",
+		"body": "->siblings(${1:\\$self = true})",
+		"description": "Returns all sibling elements",
+		"scope": "php"
+	},
+	"$layout->toArray()": {
+		"prefix": "->toArray()",
+		"body": "->toArray()",
+		"description": "The result is being sent to the editor via the API in the panel",
+		"scope": "php"
+	},
 	"$language->baseUrl()": {
 		"prefix": "->baseUrl()",
 		"body": "->baseUrl()",
