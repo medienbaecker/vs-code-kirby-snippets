@@ -536,13 +536,13 @@
 	"$kirby->load()": {
 		"prefix": "->load()",
 		"body": "->load()",
-		"description": "Access Kirby&#039;s part loader",
+		"description": "Access Kirby’s part loader",
 		"scope": "php"
 	},
 	"$kirby->locks()": {
 		"prefix": "->locks()",
 		"body": "->locks()",
-		"description": "Returns the app&#039;s locks object",
+		"description": "Returns the app’s locks object",
 		"scope": "php"
 	},
 	"$kirby->markdown()": {
@@ -1136,7 +1136,7 @@
 	"$site->mediaUrl()": {
 		"prefix": "->mediaUrl()",
 		"body": "->mediaUrl()",
-		"description": "The site&#039;s base url for any files",
+		"description": "The site’s base url for any files",
 		"scope": "php"
 	},
 	"$site->modified()": {
@@ -1280,7 +1280,7 @@
 	"$site->uuid()": {
 		"prefix": "->uuid()",
 		"body": "->uuid()",
-		"description": "Returns the site&#039;s Unique ID which is always `site://`.",
+		"description": "Returns the site’s Unique ID which is always `site://`.",
 		"scope": "php"
 	},
 	"$site->videos()": {
@@ -1352,7 +1352,7 @@
 	"$page->changeSort()": {
 		"prefix": "->changeSort()",
 		"body": "->changeSort(${1:\\$position = null})",
-		"description": "Change the position of the page in its siblings collection. Siblings will be resorted. If the page status isn&#039;t yet `listed`, it will be changed to it.",
+		"description": "Change the position of the page in its siblings collection. Siblings will be resorted. If the page status isn’t yet `listed`, it will be changed to it.",
 		"scope": "php"
 	},
 	"$page->changeStatus()": {
@@ -1634,37 +1634,37 @@
 	"$page->hasNext()": {
 		"prefix": "->hasNext()",
 		"body": "->hasNext(${1:\\$collection = null})",
-		"description": "Checks if there&#039;s a next item in the collection",
+		"description": "Checks if there’s a next item in the collection",
 		"scope": "php"
 	},
 	"$page->hasNextListed()": {
 		"prefix": "->hasNextListed()",
 		"body": "->hasNextListed(${1:\\$collection = null})",
-		"description": "Checks if there&#039;s a next listed page in the siblings collection",
+		"description": "Checks if there’s a next listed page in the siblings collection",
 		"scope": "php"
 	},
 	"$page->hasNextUnlisted()": {
 		"prefix": "->hasNextUnlisted()",
 		"body": "->hasNextUnlisted(${1:\\$collection = null})",
-		"description": "Checks if there&#039;s a next unlisted page in the siblings collection",
+		"description": "Checks if there’s a next unlisted page in the siblings collection",
 		"scope": "php"
 	},
 	"$page->hasPrev()": {
 		"prefix": "->hasPrev()",
 		"body": "->hasPrev(${1:\\$collection = null})",
-		"description": "Checks if there&#039;s a previous item in the collection",
+		"description": "Checks if there’s a previous item in the collection",
 		"scope": "php"
 	},
 	"$page->hasPrevListed()": {
 		"prefix": "->hasPrevListed()",
 		"body": "->hasPrevListed(${1:\\$collection = null})",
-		"description": "Checks if there&#039;s a previous listed page in the siblings collection",
+		"description": "Checks if there’s a previous listed page in the siblings collection",
 		"scope": "php"
 	},
 	"$page->hasPrevUnlisted()": {
 		"prefix": "->hasPrevUnlisted()",
 		"body": "->hasPrevUnlisted(${1:\\$collection = null})",
-		"description": "Checks if there&#039;s a previous unlisted page in the siblings collection",
+		"description": "Checks if there’s a previous unlisted page in the siblings collection",
 		"scope": "php"
 	},
 	"$page->hasTemplate()": {
@@ -1796,7 +1796,7 @@
 	"$page->isHomeOrErrorPage()": {
 		"prefix": "->isHomeOrErrorPage()",
 		"body": "->isHomeOrErrorPage()",
-		"description": "It&#039;s often required to check for the home and error page to stop certain actions. That&#039;s why there&#039;s a shortcut.",
+		"description": "It’s often required to check for the home and error page to stop certain actions. That’s why there’s a shortcut.",
 		"scope": "php"
 	},
 	"$page->isHomePage()": {
@@ -1892,7 +1892,7 @@
 	"$page->mediaUrl()": {
 		"prefix": "->mediaUrl()",
 		"body": "->mediaUrl()",
-		"description": "The page&#039;s base URL for any files",
+		"description": "The page’s base URL for any files",
 		"scope": "php"
 	},
 	"$page->modified()": {
@@ -2180,7 +2180,7 @@
 	"$page->uuid()": {
 		"prefix": "->uuid()",
 		"body": "->uuid()",
-		"description": "Returns the page&#039;s Unique ID.",
+		"description": "Returns the page’s Unique ID.",
 		"scope": "php"
 	},
 	"$page->videos()": {
@@ -2738,7 +2738,7 @@
 	"$file->changeSort()": {
 		"prefix": "->changeSort()",
 		"body": "->changeSort(${1:\\$sort})",
-		"description": "Changes the file&#039;s sorting number in the meta file",
+		"description": "Changes the file’s sorting number in the meta file",
 		"scope": "php"
 	},
 	"$file->clone()": {
@@ -2894,13 +2894,13 @@
 	"$file->hasNext()": {
 		"prefix": "->hasNext()",
 		"body": "->hasNext(${1:\\$collection = null})",
-		"description": "Checks if there&#039;s a next item in the collection",
+		"description": "Checks if there’s a next item in the collection",
 		"scope": "php"
 	},
 	"$file->hasPrev()": {
 		"prefix": "->hasPrev()",
 		"body": "->hasPrev(${1:\\$collection = null})",
-		"description": "Checks if there&#039;s a previous item in the collection",
+		"description": "Checks if there’s a previous item in the collection",
 		"scope": "php"
 	},
 	"$file->hash()": {
@@ -3086,7 +3086,7 @@
 	"$file->modified()": {
 		"prefix": "->modified()",
 		"body": "->modified(${1:\\$format = null}, ${2:\\$handler = null}, ${3:\\$languageCode = null})",
-		"description": "Get the file&#039;s last modification time.",
+		"description": "Get the file’s last modification time.",
 		"scope": "php"
 	},
 	"$file->move()": {
@@ -3188,7 +3188,7 @@
 	"$file->publish()": {
 		"prefix": "->publish()",
 		"body": "->publish()",
-		"description": "Move the file to the public media folder if it&#039;s not already there.",
+		"description": "Move the file to the public media folder if it’s not already there.",
 		"scope": "php"
 	},
 	"$file->quality()": {
@@ -3380,7 +3380,7 @@
 	"$file->uuid()": {
 		"prefix": "->uuid()",
 		"body": "->uuid()",
-		"description": "Return the fle&#039;s Unique ID.",
+		"description": "Return the file’s Unique ID.",
 		"scope": "php"
 	},
 	"$file->validateContents()": {
@@ -4046,13 +4046,13 @@
 	"$user->hasNext()": {
 		"prefix": "->hasNext()",
 		"body": "->hasNext(${1:\\$collection = null})",
-		"description": "Checks if there&#039;s a next item in the collection",
+		"description": "Checks if there’s a next item in the collection",
 		"scope": "php"
 	},
 	"$user->hasPrev()": {
 		"prefix": "->hasPrev()",
 		"body": "->hasPrev(${1:\\$collection = null})",
-		"description": "Checks if there&#039;s a previous item in the collection",
+		"description": "Checks if there’s a previous item in the collection",
 		"scope": "php"
 	},
 	"$user->hasVideos()": {
@@ -4226,13 +4226,13 @@
 	"$user->name()": {
 		"prefix": "->name()",
 		"body": "->name()",
-		"description": "Returns the user&#039;s name",
+		"description": "Returns the user’s name",
 		"scope": "php"
 	},
 	"$user->nameOrEmail()": {
 		"prefix": "->nameOrEmail()",
 		"body": "->nameOrEmail()",
-		"description": "Returns the user&#039;s name or, if empty, the email address",
+		"description": "Returns the user’s name or, if empty, the email address",
 		"scope": "php"
 	},
 	"$user->next()": {
@@ -4376,7 +4376,7 @@
 	"$user->uuid()": {
 		"prefix": "->uuid()",
 		"body": "->uuid()",
-		"description": "Returns the user&#039;s Unique ID.",
+		"description": "Returns the user’s Unique ID.",
 		"scope": "php"
 	},
 	"$user->validatePassword()": {
@@ -4718,7 +4718,7 @@
 	"$users->role()": {
 		"prefix": "->role()",
 		"body": "->role(${1:\\$role})",
-		"description": "Shortcut for `$users-&gt;filter(&#039;role&#039;, &#039;admin&#039;)`",
+		"description": "Shortcut for `$users-&gt;filter(’role’, ’admin’)`",
 		"scope": "php"
 	},
 	"$users->search()": {
@@ -5234,13 +5234,13 @@
 	"$block->hasNext()": {
 		"prefix": "->hasNext()",
 		"body": "->hasNext(${1:\\$collection = null})",
-		"description": "Checks if there&#039;s a next item in the collection",
+		"description": "Checks if there’s a next item in the collection",
 		"scope": "php"
 	},
 	"$block->hasPrev()": {
 		"prefix": "->hasPrev()",
 		"body": "->hasPrev(${1:\\$collection = null})",
-		"description": "Checks if there&#039;s a previous item in the collection",
+		"description": "Checks if there’s a previous item in the collection",
 		"scope": "php"
 	},
 	"$block->id()": {
@@ -5786,13 +5786,13 @@
 	"$layout->hasNext()": {
 		"prefix": "->hasNext()",
 		"body": "->hasNext(${1:\\$collection = null})",
-		"description": "Checks if there&#039;s a next item in the collection",
+		"description": "Checks if there’s a next item in the collection",
 		"scope": "php"
 	},
 	"$layout->hasPrev()": {
 		"prefix": "->hasPrev()",
 		"body": "->hasPrev(${1:\\$collection = null})",
-		"description": "Checks if there&#039;s a previous item in the collection",
+		"description": "Checks if there’s a previous item in the collection",
 		"scope": "php"
 	},
 	"$layout->id()": {
@@ -6482,7 +6482,7 @@
 	"$pagination->hasNextPage()": {
 		"prefix": "->hasNextPage()",
 		"body": "->hasNextPage()",
-		"description": "Checks if there&#039;s a next page",
+		"description": "Checks if there’s a next page",
 		"scope": "php"
 	},
 	"$pagination->hasPage()": {
@@ -6500,7 +6500,7 @@
 	"$pagination->hasPrevPage()": {
 		"prefix": "->hasPrevPage()",
 		"body": "->hasPrevPage()",
-		"description": "Checks if there&#039;s a previous page",
+		"description": "Checks if there’s a previous page",
 		"scope": "php"
 	},
 	"$pagination->isFirstPage()": {
