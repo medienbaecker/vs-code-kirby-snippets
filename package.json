@@ -1,46 +1,46 @@
 {
-    "name": "kirby-snippets",
-    "displayName": "Kirby Cheatsheet Snippets",
-    "description": "https://getkirby.com/docs",
-    "version": "4.2.0",
-    "publisher": "medienbaecker",
-    "author": {
-        "name": "Thomas Günther",
-        "email": "mail@medienbaecker.com",
-        "url": "https://medienbaecker.com"
-    },
-    "homepage": "https://github.com/medienbaecker/vs-code-kirby-snippets",
-    "bugs": {
-        "url": "https://github.com/medienbaecker/vs-code-kirby-snippets/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/medienbaecker/vs-code-kirby-snippets.git"
-    },
-    "icon": "images/icon.png",
-    "galleryBanner": {
-        "color": "#212020",
-        "theme": "dark"
-    },
-    "keywords": [
-        "getkirby",
-        "kirbycms",
-        "snippets",
-        "snippet",
-        "vscode"
-    ],
-    "engines": {
-        "vscode": "^1.5.0"
-    },
-    "categories": [
-        "Snippets"
-    ],
-    "contributes": {
-        "snippets": [
-            {
-                "language": "php",
-                "path": "./snippets/snippets.json"
-            }
-        ]
-    }
+  "name": "kirby-snippets",
+  "displayName": "Kirby Cheatsheet Snippets",
+  "description": "https://getkirby.com/docs",
+  "version": "4.3.0",
+  "publisher": "medienbaecker",
+  "author": {
+    "name": "Thomas Günther",
+    "email": "mail@medienbaecker.com",
+    "url": "https://medienbaecker.com"
+  },
+  "homepage": "https://github.com/medienbaecker/vs-code-kirby-snippets",
+  "bugs": {
+    "url": "https://github.com/medienbaecker/vs-code-kirby-snippets/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/medienbaecker/vs-code-kirby-snippets.git"
+  },
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#212020",
+    "theme": "dark"
+  },
+  "keywords": [
+    "getkirby",
+    "kirbycms",
+    "snippets",
+    "snippet",
+    "vscode"
+  ],
+  "engines": {
+    "vscode": "^1.5.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "php",
+        "path": "./snippets/snippets.json"
+      }
+    ]
+  }
 }
