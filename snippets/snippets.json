@@ -383,6 +383,12 @@
     "description": "Generates a non-guessable token based on model data and a configured salt",
     "scope": "php"
   },
+  "$kirby->controller()": {
+    "prefix": "->controller()",
+    "body": "->controller(${1:\\$name}, ${2:\\$arguments = [ ]}, ${3:\\$contentType = 'html'})",
+    "description": "Calls a page controller by name and with the given arguments",
+    "scope": "php"
+  },
   "$kirby->core()": {
     "prefix": "->core()",
     "body": "->core()",
@@ -393,6 +399,12 @@
     "prefix": "->csrf()",
     "body": "->csrf(${1:\\$check = null})",
     "description": "Checks/returns a CSRF token",
+    "scope": "php"
+  },
+  "$kirby->currentLanguage()": {
+    "prefix": "->currentLanguage()",
+    "body": "->currentLanguage()",
+    "description": "Returns the current language, if set by `static::setCurrentLanguage`",
     "scope": "php"
   },
   "$kirby->defaultLanguage()": {
@@ -446,7 +458,7 @@
   "$kirby->language()": {
     "prefix": "->language()",
     "body": "->language(${1:\\$code = null})",
-    "description": "Returns the current language",
+    "description": "Returns the language by code or shortcut (`default`, `current`).",
     "scope": "php"
   },
   "$kirby->languages()": {
@@ -1133,12 +1145,6 @@
     "description": "Returns an array with all content files; NOTE: only supports the published content file (use `$model-&gt;storage()-&gt;contentFiles()` for other versions)",
     "scope": "php"
   },
-  "$page->copy()": {
-    "prefix": "->copy()",
-    "body": "->copy(${1:\\$options = [ ]})",
-    "description": "Copies the page to a new parent",
-    "scope": "php"
-  },
   "$page->createChild()": {
     "prefix": "->createChild()",
     "body": "->createChild(${1:\\$props})",
@@ -1667,12 +1673,6 @@
     "description": "Returns the previous unlisted page",
     "scope": "php"
   },
-  "$page->publish()": {
-    "prefix": "->publish()",
-    "body": "->publish()",
-    "description": "",
-    "scope": "php"
-  },
   "$page->purge()": {
     "prefix": "->purge()",
     "body": "->purge()",
@@ -1773,12 +1773,6 @@
     "prefix": "->uid()",
     "body": "->uid()",
     "description": "Returns the UID of the page.",
-    "scope": "php"
-  },
-  "$page->unpublish()": {
-    "prefix": "->unpublish()",
-    "body": "->unpublish()",
-    "description": "Convert a page from listed or unlisted to draft.",
     "scope": "php"
   },
   "$page->update()": {
@@ -2353,8 +2347,8 @@
   },
   "$file->copy()": {
     "prefix": "->copy()",
-    "body": "->copy(${1:\\$page})",
-    "description": "Copy the file to the given page",
+    "body": "->copy(${1:\\$target}, ${2:\\$force = false})",
+    "description": "Copy a file to a new location.",
     "scope": "php"
   },
   "$file->crop()": {
@@ -2799,6 +2793,12 @@
     "prefix": "->sha1()",
     "body": "->sha1()",
     "description": "Returns the sha1 hash of the file",
+    "scope": "php"
+  },
+  "$file->sharpen()": {
+    "prefix": "->sharpen()",
+    "body": "->sharpen(${1:\\$amount = 50})",
+    "description": "Sharpens the image",
     "scope": "php"
   },
   "$file->siblings()": {
@@ -3746,7 +3746,7 @@
   "$user->roles()": {
     "prefix": "->roles()",
     "body": "->roles()",
-    "description": "Returns all available roles for this user, that can be selected by the authenticated user",
+    "description": "Returns all available roles for this user, that the authenticated user can change to.",
     "scope": "php"
   },
   "$user->root()": {
